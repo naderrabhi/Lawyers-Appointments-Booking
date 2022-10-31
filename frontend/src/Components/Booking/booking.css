@@ -1,0 +1,96 @@
+.booking {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #17140f;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking--content {
+    position: absolute;
+    width: 50%;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking--row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.booking--col {
+    padding: 0;
+    margin: 0;
+}
+
+.booking--form h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color : #c4964b;
+}
+
+.booking-date {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select--day {
+    margin-right: 1rem;
+}
+
+.booking--btn {
+    background-color: #c4964b;
+    color: #17140f;
+}
+
+@media screen and (max-width: 2000px) {
+    .booking--row {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 1110px) {
+    .booking--form h3 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 783px) {
+    .booking--content {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .booking--content {
+        width: 88%;
+    }
+}
+
+@media screen and (max-width: 444px) {
+    .booking--form h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .booking--content {
+        width: 100%;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,60 @@
+.practice {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    margin-top: 12vh;
+    background-color: #17140f;
+}
+
+.parctice--content {
+    height: 100%;
+    width: 100%;
+    padding: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #F6F7EB ;
+    line-height: 2rem;
+}
+
+.practice--header h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #c4964b;
+}
+
+.practice--header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.practice--body {
+    margin-top: 2rem;
+}
+
+.practice--col {
+    margin-bottom: 1rem;
+    font-size: 24px;
+    padding: 1rem;
+}
+
+.practice--col h5 {
+    color: #c4964b;
+}
+
+.practice--col svg{
+    margin-bottom: 1.5rem;
+}
+
+.practice--col:hover {
+    cursor:pointer;
+    background-color: #F6F7EB;
+    color: #c4964b;
+}
+
+@media screen and (max-width: 1200px) {
+    .practice {
+        height: 100%;
+    }
+}

@@ -1,0 +1,120 @@
+.footer {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    margin-top: 12vh;
+}
+
+.footer--header {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F6F7EB;
+    /* width: 100%; */
+    text-align: center;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.footer--body {
+    width: 100%;
+    height: 50vh;
+    margin-top: 5rem;
+    margin-left: 0;
+    background-color: #2C3639;
+    padding: 4rem;
+}
+
+.footer--body_row {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: #F6F7EB;
+}
+
+
+
+.footer--body_row svg {
+    margin-bottom: 1.2rem;
+    color: #c4964b;
+    font-size: 2rem;
+}
+
+.footer--icons {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.footer--icons a {
+    font-size: 2.2rem;
+    color: #c4964b;
+}
+
+
+.footer--icons svg:hover {
+    transform: scale(1.1);
+    transition: 0.8s ease;
+}
+
+.footer--copyright {
+    background-color: #361500;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.footer--copyright p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #F6F7EB;
+}
+
+@media screen and (max-width: 1350px) {
+    .footer {
+        height: 100%;
+    }
+    .footer--body {   
+        height: 50%;
+    } 
+}
+
+@media screen and (max-width: 1050px) {
+    .footer--body_row {
+        font-size: 1.2rem;
+        line-height: 0.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer--body {
+        height: 50%;
+        padding: 2rem 4rem;
+    }
+    .footer--body_col {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .footer--header p {  
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .footer--body_col {
+        font-size: 0.7rem;
+        line-height: 0.5rem;
+    }
+    .footer--icons {
+        width: 100%;
+    }
+    .footer--copyright p {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,68 @@
+.sign {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign--row {
+    width: 100%;
+    height: 65%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12vh;
+}
+
+.sign--form_sign {
+    width: 50%;
+    padding: 2rem;
+    background: rgb(39,10,4,0.6);
+    border-radius: 3%;
+}
+
+.sign--form_sign h3 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #F6F7EB;
+    margin-bottom: 3rem;
+}
+
+.sign--form_sign button {
+    background-color: #F6F7EB;
+    font-size: 1rem;
+    color: black;
+    border: none;
+    padding: 0.5rem;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+@media screen and (max-width: 1360px){
+    
+}
+
+@media screen and (max-width: 1050px){
+    .sign--form_sign {
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 450px){
+    .sign--row {
+        padding: 2rem 1rem;
+    }
+}

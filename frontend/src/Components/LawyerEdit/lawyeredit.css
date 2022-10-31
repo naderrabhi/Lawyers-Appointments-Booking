@@ -1,0 +1,47 @@
+
+.form--education,
+.form--experience {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 0.7rem;
+    position: relative;
+    flex-direction: row;
+}
+
+.modal-dialog {
+    max-width: 65% !important;
+}
+
+.education--date,
+.experience--date {
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.size--degree_company {
+    width: 400px;
+}
+
+@media screen and (max-width:1200px) {
+    .form--education,
+.form--experience {
+    flex-direction: column;
+}
+.education--date,
+.experience--date {
+    position: relative;
+    justify-content: center;
+}
+.size--degree_company {
+    width: 100%;
+}
+}
+
+@media screen and (max-width:500px) {
+    .modal-dialog {
+        max-width: 100% !important;
+    }
+}

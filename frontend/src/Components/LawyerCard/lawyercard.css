@@ -1,0 +1,29 @@
+.card--lawyer {
+    border: solid 2px #c4964b;
+    background: transparent;
+}
+
+.card-img-top {
+    max-width: 100%;
+}
+
+.card-body {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #c4964b;
+}
+
+.card--btn {
+    background-color: #c4964b;
+    border: none;
+}
+
+.card--btn:hover {
+    background-color: #c4964b;
+    border: none;
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
