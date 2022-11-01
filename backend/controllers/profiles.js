@@ -47,19 +47,7 @@ const social = req.body.social
     }
 }
 
-const getOneProfile = async (req, res) => {
-    
-    try {
-        const profile = await Profile.findOne({_id : req.params.id}).populate("lawyerID","-password")
-        res.send(profile)
-    } catch (error) {
-        res.status(400).send({ msg: error.message });
-      console.log(error);
-    }
-}
-
 const getMyProfile = async (req, res) => {
-    console.log(req.user)
     try {
         const profile = await Profile.findOne({lawyerID : {_id : req.user._id}}).populate("lawyerID","-password")
         if (!profile) return res.status(400).send({msg : "you can not access this profile"})
@@ -80,4 +68,4 @@ const getAllProfiles = async (req, res) => {
     }
 }
 
-module.exports = {getMyProfile,createProfile,getAllProfiles,getOneProfile}
+module.exports = {getMyProfile,createProfile,getAllProfiles}

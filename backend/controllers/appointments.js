@@ -19,9 +19,9 @@ const createAppointment = async (req, res) => {
 }
 
 const getOneAppointment = async (req, res) => {
-    const clientID= req.params.id;
+    const id= req.params.id;
     try {
-        const appointment = await Appointment.findOne({clientID : clientID}).populate("clientID")
+        const appointment = await Appointment.findOne({_id : id}).populate("clientID","-password").populate("lawyerID","-password");
         if (!appointment) return res.status(400).send({msg : "not found"});
         res.send(appointment)
     } catch (error) {
@@ -30,22 +30,20 @@ const getOneAppointment = async (req, res) => {
     }
 }
 
-const getAllAppointmentForLawyer = async (req, res) => {
+const getAllAppointment = async (req, res) => {
+    const role = req.user.role
     try {
-        const appointments = await Appointment.find({lawyerID : req.user._id}).populate("clientID")
-        if(!appointments) return res.status(400).send({msg : "No appointments found"})
-        res.send(appointments)
-    } catch (error) {
-        res.status(400).send({ msg: error.message });
-        console.log(error);
-    }
-}
-
-const getAllAppointmentForLClient = async (req, res) => {
-    try {
-        const appointments = await Appointment.find({clientID : req.user._id}).populate("lawyerID")
-        if(!appointments) return res.status(400).send({msg : "No appointments found"})
-        res.send(appointments)
+        if (role == 'lawyer') {
+            const appointments = await Appointment.find({lawyerID : req.user._id}).populate("clientID","-password")
+            if(!appointments) return res.status(400).send({msg : "No appointments found"})
+            return res.send(appointments)
+        }
+        if (role == 'client') {
+            const appointments = await Appointment.find({clientID : req.user._id}).populate("lawyerID","-password")
+            if(!appointments) return res.status(400).send({msg : "No appointments found"})
+            return res.send(appointments)
+        }
+        
     } catch (error) {
         res.status(400).send({ msg: error.message });
         console.log(error);
@@ -67,4 +65,4 @@ const deleteAppointment = async (req,res) => {
         console.log(error);
     }
 }
-module.exports = {getAllAppointmentForLawyer,getAllAppointmentForLClient,createAppointment,getOneAppointment,deleteAppointment}
+module.exports = {getAllAppointment,createAppointment,getOneAppointment,deleteAppointment}

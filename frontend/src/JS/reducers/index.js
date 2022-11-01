@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import {auth} from "./auth"
-import {admin} from "./admin"
-import {reducersGuest} from "./reducersGuest"
-import {reducersProfile} from "./reducersProfile"
-export const reducers = combineReducers({auth,admin,reducersGuest,reducersProfile });
+import {auth} from './auth'
+import {appointment} from './appointment'
+import {profile} from './profile'
+import {admin} from './admin'
+import {user} from './user'
+export const reducers = combineReducers({auth,admin,appointment,profile,user });

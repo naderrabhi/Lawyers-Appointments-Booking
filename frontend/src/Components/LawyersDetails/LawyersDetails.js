@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 import "./lawyersdetails.css";
 import { useDispatch, useSelector} from "react-redux";
 import {useParams} from 'react-router-dom'
-import { getOneLawyerGuest } from "../../JS/actions/actionsGuest";
+import { getOneProfile } from "../../JS/actions/profile";
 
 const LawyersDetails = () => {
   const {id} = useParams()
   const lawyer = useSelector(state => state.reducersGuest.oneLawyer)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getOneLawyerGuest(id))
+    dispatch(getOneProfile(id))
   }, [])
   
   return (

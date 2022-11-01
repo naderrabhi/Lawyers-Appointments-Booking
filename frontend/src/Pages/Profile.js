@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Navigate } from "react-router-dom";
 import ProfileClient from "../Components/Profile/ProfileClient";
 import ProfileLawyer from "../Components/Profile/ProfileLawyer";
-import { getProfile } from "../JS/actions/actionsProfile";
+import {getMyProfile} from "../JS/actions/profile"
 
 const Profile = ({ user }) => {
   const dispatch = useDispatch();
-  const profileArr = useSelector((state) => state.reducersProfile.Profile);
-  const profile = { ...profileArr[0] };
 
   useEffect(() => {
-    dispatch(getProfile());
+    dispatch(getMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
 
-      {profile && user.role === "lawyer" ? (
+      {/* {profile && user.role === "lawyer" ? (
         <ProfileLawyer profile={profile} />
       ) : !profile && user.role === "lawyer" ? (
         Navigate("/")
@@ -26,7 +24,7 @@ const Profile = ({ user }) => {
         <ProfileClient user={user} />
       ) : (
         Navigate("/")
-      )}
+      )} */}
     </>
   );
 };

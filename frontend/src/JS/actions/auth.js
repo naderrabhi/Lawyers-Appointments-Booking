@@ -58,7 +58,7 @@ export const loginUser = (user, navigate) => async (dispatch) => {
       navigate("/profile");
     }
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-    navigate("/");
+    navigate("/profile");
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error });
     console.log(error);
@@ -76,7 +76,7 @@ export const getCurrentUser = () => async (dispatch) => {
         },
       }
     );
-    console.log(response.data);
+    
     dispatch({ type: GET_CURRENT_USER_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: GET_CURRENT_USER_FAIL, payload: error });

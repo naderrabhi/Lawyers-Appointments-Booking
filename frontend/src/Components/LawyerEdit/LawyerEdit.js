@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { postProfile } from "../../JS/actions/actionsProfile";
+import { postProfile } from "../../JS/actions/profile"
 import "./lawyeredit.css";
 
 const specialty = [

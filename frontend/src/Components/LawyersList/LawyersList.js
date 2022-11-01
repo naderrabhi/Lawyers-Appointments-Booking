@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getLawyersGuest } from '../../JS/actions/actionsGuest'
-import LawyerCard from '../LawyerCard/LawyerCard'
+import { useDispatch } from 'react-redux'
+import { getAllProfiles } from '../../JS/actions/profile'
+// import LawyerCard from '../LawyerCard/LawyerCard'
 import './lawyerslist.css'
 
 const specialty = ["bankruptcy","business","civil Rights","criminal Law","immigration","family"]
@@ -12,14 +12,13 @@ const LawyersList = () => {
   const [input,setInput] = useState("")
 
   const dispatch = useDispatch()
-  const lawyers = useSelector(state => state.reducersGuest.lawyers)
 
   useEffect(() => {
     
-      dispatch(getLawyersGuest(value,query))
+      dispatch(getAllProfiles())
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value,query])
+  }, [])
 
   // useEffect(() => {
     
@@ -44,9 +43,9 @@ const LawyersList = () => {
         </div>
       </form>
     </div>
-    <div className='lawyers--list'>
+    {/* <div className='lawyers--list'>
       {lawyers.map(lawyer => <LawyerCard key={lawyer._id} lawyer={lawyer} />)}
-    </div>
+    </div> */}
     </div>
   )
 }
