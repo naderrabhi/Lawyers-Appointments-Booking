@@ -1,18 +1,18 @@
 import React from "react";
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import "./lawyercard.css";
 
-const LawyerCard = ({ lawyer }) => {
+const LawyerCard = ({ profile }) => {
   return (
-    <div className="card card--lawyer" style={{ width: "18rem" }}>
-      {/* <img className="card-img-top" src="./nader.png" alt="" />
+    <Link className="link--card_lawyer" to={`/lawyers/${profile._id}`} >
+    <div className="card card--lawyer" style={{ width: "18rem",height : "24rem" }}>
+      <img className="card-img-top" src="./nader.jfif" alt="" />
       <div className="card-body">
-        <h5 className="card-title">{lawyer.firstName} {lawyer.lastName}</h5>
-        <Link to={`/lawyers/${lawyer._id}`} className="btn card--btn btn-sm btn-primary">
-          View Profile
-        </Link>
-      </div> */}
+        <h4 className="card-title">{profile.lawyerID.firstName} {profile.lawyerID.firstName}</h4>
+        <h5>{profile.lawyerID.specialty}</h5>
+      </div>
     </div>
+    </Link>
   );
 };
 

@@ -50,6 +50,20 @@ const getAllAppointment = async (req, res) => {
     }
 }
 
+const getAllAppointmentOfOneLawyer = async (req,res) => {
+    const id = req.params.id
+    console.log('id from back' , id)
+    try {
+        const appointments = await Appointment.find({lawyerID : id})
+        console.log("appointments");
+        if (!appointments) return res.status(404).send({ msg:"No appointments found"})
+        res.send(appointments)
+    } catch (error) {
+        res.status(400).send({ msg: error.message });
+        console.log(error);
+    }
+}
+
 const deleteAppointment = async (req,res) => {
     const id = req.params.id;
     try {
@@ -65,4 +79,4 @@ const deleteAppointment = async (req,res) => {
         console.log(error);
     }
 }
-module.exports = {getAllAppointment,createAppointment,getOneAppointment,deleteAppointment}
+module.exports = {getAllAppointmentOfOneLawyer,getAllAppointment,createAppointment,getOneAppointment,deleteAppointment}

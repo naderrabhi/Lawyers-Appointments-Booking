@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector,} from "react-redux";
 import {deleteUser, getAllUser, getUser} from "../../JS/actions/admin";
-import Navbar from "../Navbar/Navbar";
 import "./admindashbord.css";
 import Modal from 'react-bootstrap/Modal';
 import ModalDetails from "../Modal/ModalDetails";
@@ -9,6 +8,7 @@ import ModalDetails from "../Modal/ModalDetails";
 const AdminDashbord = () => {
   const Users = useSelector(state => state.admin.Users)
   const User = useSelector(state => state.admin.User)
+  const [data,setData] = useState(Users)
   const [show, setShow] = useState(false);
   const [name, setName] = useState("")
   const [role, setRole] = useState("all")
@@ -21,7 +21,7 @@ const AdminDashbord = () => {
   useEffect(() => {
     dispatch(getAllUser(role,name)) 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  },[data])
   
   const handleSubmit = event => {
     event.preventDefault();
@@ -48,8 +48,6 @@ const AdminDashbord = () => {
               <th scope="col">name</th>
               <th scope="col">role</th>
               <th scope="col">specialty</th>
-              <th scope="col">date/hour</th>
-              <th scope="col">subject</th>
               <th scope="col">action</th>
             </tr>
           </thead>
@@ -59,13 +57,11 @@ const AdminDashbord = () => {
               <td>{user.firstName} {user.LastName}</td>
               <td>{user.role}</td>
               <td>{user.specialty}</td>
-              <td>{user.day} {user.hour}</td>
-              <td>{user.subject}</td>
               <td className="dashboard--action">
                 <button onClick={()=> {dispatch(getUser(user._id));handleShow()} } className="btn btn-warning btn-sm">detail</button>
-                <Modal show={show} onHide={handleClose}>
-                <ModalDetails User={User} handleClose={handleClose} />
-                </Modal>
+                  <Modal show={show} onHide={handleClose}>
+                    <ModalDetails User={User} handleClose={handleClose} />
+                  </Modal>
                 <button onClick={()=> dispatch(deleteUser(User._id))} className="btn btn-danger btn-sm">delete</button>
               </td>
             </tr>))}

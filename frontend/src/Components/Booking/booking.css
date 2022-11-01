@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     background-color: #17140f;
-    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +12,7 @@
 
 .booking--content {
     position: absolute;
-    width: 50%;
+    width: 75%;
     padding: 2rem;
     height: 100%;
     display: flex;
@@ -56,6 +55,13 @@
 .booking--btn {
     background-color: #c4964b;
     color: #17140f;
+}
+
+.booking--btn:hover {
+    background-color: #c4964b;
+    color: #17140f;
+    transform: scale(1.05);
+    transition: 0.5s ease;
 }
 
 @media screen and (max-width: 2000px) {

@@ -68,4 +68,14 @@ const getAllProfiles = async (req, res) => {
     }
 }
 
-module.exports = {getMyProfile,createProfile,getAllProfiles}
+const getOneProfile = async (req,res) => {
+    try {
+        const profile = await Profile.find({_id : req.params.id}).populate("lawyerID","-password")
+        res.send(profile)
+    } catch (error) {
+        res.status(400).send({ msg: error.message });
+      console.log(error);
+    }
+}
+
+module.exports = {getMyProfile,createProfile,getAllProfiles,getOneProfile}

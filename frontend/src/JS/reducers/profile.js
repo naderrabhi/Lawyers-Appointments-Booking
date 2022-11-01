@@ -38,7 +38,7 @@ export const profile = (state = initialState, { type, payload }) => {
     case GET_ONE_PROFILE_LOADING:
       return { ...state, loading: true };
     case GET_ONE_PROFILE_SUCCESS:
-      return { ...state, loading: false, Profile: payload };
+      return { ...state, loading: false, Profile: {...payload[0]} };
     case GET_ONE_PROFILE_FAIL:
       return { ...state, loading: false, error: payload };
 

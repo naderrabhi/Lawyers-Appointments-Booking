@@ -1,6 +1,63 @@
 .lawyer--details {
     width: 100%;
     height: 100vh;
-    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 14vh;
+}
+
+.lawyer--details_img {
+    width: 460px;
+}
+
+.lawyer--details_info {
+    width: 100%;
+    height: 100%;
+    padding: 4rem 2rem;
+}
+.lawyer--details_info h1 {
+    color: #c4964b;
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-bottom: 4rem;
+}
+
+.lawyer--details_info p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+}
+
+.lawyer--details_social {
+    display: flex;
+    align-items: center;
+}
+
+.lawyer--details_social p {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8rem;
+}
+
+.lawyer--details_social a {
+    font-size: 1.5rem;
+}
+.lawyer--details_social > a > svg {
+    font-size: 4rem;
+}
+
+.lawyer--details_btn {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.lawyer--details_btn button {
+    background-color: #c4964b;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: none;
 }

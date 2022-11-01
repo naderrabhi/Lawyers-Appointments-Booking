@@ -4,6 +4,9 @@ import {
   GET_APPOINTMENTS_FAIL,
   GET_APPOINTMENTS_LOADING,
   GET_APPOINTMENTS_SUCCESS,
+  GET_LAWYER_APPOINTMENT_FAIL,
+  GET_LAWYER_APPOINTMENT_LOADING,
+  GET_LAWYER_APPOINTMENT_SUCCESS,
   GET_ONE_APPOINTMENT_FAIL,
   GET_ONE_APPOINTMENT_LOADING,
   GET_ONE_APPOINTMENT_SUCCESS,
@@ -17,6 +20,7 @@ const initialState = {
   newAppointment: {},
   Appointment: {},
   oneAppointment: {},
+  lawyerAppointment: {},
   Appointments: [],
 };
 
@@ -34,6 +38,13 @@ export const appointment = (state = initialState, { type, payload }) => {
     case GET_ONE_APPOINTMENT_SUCCESS:
       return { ...state, loading: false, oneAppointment: payload };
     case GET_ONE_APPOINTMENT_FAIL:
+      return { ...state, loading: false, error: payload };
+
+    case GET_LAWYER_APPOINTMENT_LOADING:
+      return { ...state, loading: true };
+    case GET_LAWYER_APPOINTMENT_SUCCESS:
+      return { ...state, loading: false, lawyerAppointment: payload };
+    case GET_LAWYER_APPOINTMENT_FAIL:
       return { ...state, loading: false, error: payload };
 
     case POST_APPOINTMENT_SUCCESS:

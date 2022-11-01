@@ -6,7 +6,6 @@ const Lawyers = () => {
   
   return (
     <>
-      
       <LawyersList />
     </>
   )
