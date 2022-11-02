@@ -6,7 +6,7 @@ import './alerts.css'
 const Alerts = () => {
 const alerts = useSelector(state => state.alert);
 //console.log(alerts)
-  return(localStorage.getItem('token') &&  alerts && alerts.map((alert) => (
+  return(alerts && alerts.map((alert) => (
     <Alert className='alert' key={alert.id} variant={alert.msg.variant} >
       {alert.msg.msg}
     </Alert>

@@ -13,7 +13,7 @@ const specialty = [
   "family",
 ];
 
-const SignUpAsLawyer = ({ action, title }) => {
+const SignUpAsLawyer = ({ action}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (event) => {

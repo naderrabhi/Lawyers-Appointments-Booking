@@ -28,7 +28,7 @@ function App() {
   const user = useSelector(state => state.auth.User)
 
   useEffect(() => {
-    dispatch(getCurrentUser()) 
+   if (localStorage.getItem('token')) dispatch(getCurrentUser()) 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

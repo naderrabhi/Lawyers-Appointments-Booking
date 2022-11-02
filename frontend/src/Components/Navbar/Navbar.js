@@ -27,7 +27,7 @@ const Navbar = () => {
             <Link to="/lawyers">Lawyers</Link>
           </li>
         ) : (
-          Navigate("/")
+          null
         )}
         <li>
           <Link to="/practice">Practice Areas</Link>
@@ -107,7 +107,7 @@ const Navbar = () => {
                   <Link to="/lawyers">Lawyers</Link>
                 </li>
               ) : (
-                Navigate("/about")
+                null
               )}
               <li
                 onClick={() => {
