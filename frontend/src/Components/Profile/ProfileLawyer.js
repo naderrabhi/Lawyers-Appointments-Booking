@@ -29,13 +29,13 @@ const ProfileLawyer = ({profile}) => {
       <div className="col-md-8">
         <div className="profile-head">
           <h5>
-            {profile && profile.lawyerID && profile.lawyerID.firstName} {profile && profile.lawyerID && profile.lawyerID.firstName}
+            {profile.lawyerID && profile.lawyerID.firstName} {profile.lawyerID && profile.lawyerID.firstName}
           </h5>
           <h6>
           Addres : {profile && profile.address}
           </h6>
           <h6>
-          Specialty : {profile && profile.lawyerID.specialty}
+          Specialty : {profile.lawyerID && profile.lawyerID.specialty}
           </h6>
           <h6>
           Bio : {profile && profile.bio}
@@ -61,11 +61,11 @@ const ProfileLawyer = ({profile}) => {
       <div className="col-md-4">
         <div className="profile-work">
           <h5>Experience</h5>
-          {profile && profile.experience && profile.experience.map(el => (
+          {profile.experience && profile.experience.map(el => (
             <p>{el.company} from {el.from} to {el.to}</p>
           ))}
           <h5>Education</h5>
-          {profile && profile.education && profile.education.map(el => (
+          {profile.education && profile.education.map(el => (
             <p>{el.degree} from {el.from} to {el.to}</p>
           ))}
         </div>

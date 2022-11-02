@@ -15,7 +15,7 @@ const registerUserAsLawyer = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     newLawyer.password = hashedPassword;
     await newLawyer.save();
-    res.send({ msg: "Lawyer registered successfully", newLawyer });
+    res.send({ msg: "Lawyer registered successfully, Please Sign in to confirm your Account", newLawyer });
   } catch (error) {
     res.status(400).send({ msg: error.message });
     console.log(error);
@@ -35,7 +35,7 @@ const registerUserAsClient = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     newClient.password = hashedPassword;
     await newClient.save();
-    res.send({ msg: "Client registered successfully", newClient });
+    res.send({ msg: "Client registered successfully, Please Sign in to confirm your Account", newClient });
   } catch (error) {
     res.status(400).send({ msg: error.message });
     console.log(error);

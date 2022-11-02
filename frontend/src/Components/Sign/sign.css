@@ -78,4 +78,7 @@
     .sign--row {
         padding: 2rem 1rem;
     }
+    .sign--form_sign h3 {
+        font-size: 1.8rem;
+    }
 }

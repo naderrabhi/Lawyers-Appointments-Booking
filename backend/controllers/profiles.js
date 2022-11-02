@@ -36,7 +36,7 @@ const social = req.body.social
             await Profile.updateOne({lawyerID : req.user._id},{...req.body})
             const updatedProfile = await Profile.find({lawyerID : req.user._id})
             
-            return res.send(updatedProfile)
+            return res.send({updatedProfile})
         }
         const newProfile = await new Profile({...req.body,lawyerID : req.user._id})
         await newProfile.save()

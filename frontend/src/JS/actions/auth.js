@@ -10,6 +10,8 @@ import {
   REGISTER_LOADING,
   REGISTER_SUCCESS,
 } from "../const/auth";
+import { setAlert } from "./alert";
+import { getMyProfile, getOneProfile } from "./profile";
 
 export const registerLawyer = (newLawyer, navigate) => async (dispatch) => {
   dispatch({ type: REGISTER_LOADING });
@@ -19,9 +21,11 @@ export const registerLawyer = (newLawyer, navigate) => async (dispatch) => {
       newLawyer
     );
     dispatch({ type: REGISTER_SUCCESS, payload: response.data });
+    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
     navigate("/login");
   } catch (error) {
     dispatch({ type: REGISTER_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };
@@ -34,9 +38,11 @@ export const registerClient = (newClient, navigate) => async (dispatch) => {
       newClient
     );
     dispatch({ type: REGISTER_SUCCESS, payload: response.data });
+    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
     navigate("/login");
   } catch (error) {
     dispatch({ type: REGISTER_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };
@@ -48,19 +54,22 @@ export const loginUser = (user, navigate) => async (dispatch) => {
       `http://localhost:5000/api/v1/auth/login`,
       user
     );
-      
     if (response.data.user.role === "admin") {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
       navigate("/dashboard");
     }
     if (response.data.user.role === "lawyer") {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
       navigate("/profile");
     }
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
     navigate("/profile");
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };
@@ -80,6 +89,7 @@ export const getCurrentUser = () => async (dispatch) => {
     dispatch({ type: GET_CURRENT_USER_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: GET_CURRENT_USER_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };

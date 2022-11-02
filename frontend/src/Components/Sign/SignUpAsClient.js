@@ -4,7 +4,7 @@ import background from  '../../assets/image/justice.jpg'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-const SignUp = ({action,title}) => {
+const SignUpAsClient = ({action,title}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleSubmit = (event) => {
@@ -27,7 +27,7 @@ const SignUp = ({action,title}) => {
         <div className="container sign--content" >
             <div className="row sign--row" >
                 <div className="sign--form_sign">
-                    <h3>Sign up for {title}</h3>
+                    <h3>Sign up for Client</h3>
                     <form method='post' onSubmit={handleSubmit}>
                         <input required name="firstName" placeholder='First Name' type="text" className='form-control mb-3' />
                         <input required name="lastName" placeholder='Last Name' type="text" className='form-control mb-3' />
@@ -42,4 +42,4 @@ const SignUp = ({action,title}) => {
   )
 }
 
-export default SignUp
+export default SignUpAsClient

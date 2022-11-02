@@ -4,7 +4,6 @@ import SignIn from '../Components/Sign/SignIn';
 const Login = () => {
   return (
     <>
-        
         <SignIn />
     </>
   )

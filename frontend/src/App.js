@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login';
-import Register from './Pages/Register';
 import Home from './Pages/Home';
 import Appointment from './Pages/Appointment';
 import About from './Components/About/About';
@@ -18,8 +17,10 @@ import PrivateAdmin from './Private/PrivateAdmin';
 import Lawyers from './Pages/Lawyers';
 import LawyersDetails from './Components/LawyersDetails/LawyersDetails';
 import PrivateProfile from './Private/PrivateProfile';
-
-
+import Alerts from './Components/Alerts/Alerts';
+import SignUpAsClient from './Components/Sign/SignUpAsClient';
+import SignUpAsLawyer from './Components/Sign/SignUpAsLawyer';
+import Private from './Private/Private';
 
 function App() {
 
@@ -34,9 +35,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Alerts />
       <Routes>
-        <Route path='/lawyer/register' element={<Register action={registerLawyer} title="Lawyer" />} />
-        <Route path='/client/register' element={<Register action={registerClient} title="Client" />} />
+        <Route path='/lawyer/register' element={<SignUpAsLawyer action={registerLawyer} />} />
+        <Route path='/client/register' element={<SignUpAsClient action={registerClient} />} />
         <Route path='/login' element={<Login />} />
 
         <Route path='/' element={<Home />} />
@@ -45,7 +47,7 @@ function App() {
         <Route path='/contact' element={<Footer />} />
 
         <Route path='/dashboard' element={<PrivateAdmin user={user}><AdminDashbord /></PrivateAdmin>} />
-        <Route path='/lawyers' element={<Lawyers />} />
+        <Route path='/lawyers' element={<Private><Lawyers /></Private>} />
         <Route path='/profile' element={<PrivateProfile user={user}><Profile user={user} /></PrivateProfile> } />
         <Route path='/lawyers/:id' element={<LawyersDetails />} />
         <Route path='/booking' element={<Appointment />} />

@@ -14,6 +14,7 @@ import {
   POST_APPOINTMENT_FAIL,
   POST_APPOINTMENT_SUCCESS,
 } from "../const/appointment";
+import { setAlert } from "./alert";
 
 export const createAppointment = (id, newAppointment) => async (dispatch) => {
   const token = localStorage.getItem("token");
@@ -29,8 +30,10 @@ export const createAppointment = (id, newAppointment) => async (dispatch) => {
       }
     );
     dispatch({ type: POST_APPOINTMENT_SUCCESS, payload: response.data });
+    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
   } catch (error) {
     dispatch({ type: POST_APPOINTMENT_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };
@@ -104,9 +107,11 @@ export const deleteAppointment = (id) => async (dispatch) => {
       }
     );
     dispatch({ type: DEL_APPOINTMENT_SUCCESS, payload: response.data });
+    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
     dispatch(getAllAppointment());
   } catch (error) {
     dispatch({ type: DEL_APPOINTMENT_FAIL, payload: error });
+    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };

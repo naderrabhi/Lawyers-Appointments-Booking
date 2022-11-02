@@ -36,7 +36,7 @@ const LawyersList = () => {
       </form>
     </div>
     <div className='lawyers--list'>
-      {Profiles.map(profile => <LawyerCard key={profile._id} profile={profile} />)}
+      {Profiles && Profiles.map(profile => <LawyerCard key={profile._id} profile={profile} />)}
     </div>
     </div>
   )

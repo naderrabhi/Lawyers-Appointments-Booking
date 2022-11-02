@@ -12,4 +12,11 @@ li {
 
 .App {
     font-family: 'Roboto Slab', serif;
+    position: relative;
+}
+
+.alert {
+    background-color: red;
+    margin-top: 14vh;
+    position: absolute;
 }

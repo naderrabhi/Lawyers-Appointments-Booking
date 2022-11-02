@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FaAlignJustify, FaWindowClose } from "react-icons/fa";
 import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,9 +22,13 @@ const Navbar = () => {
         <li>
           <Link to="/about">About</Link>
         </li>
-        {localStorage.getItem('token') ? <li>
-          <Link to="/lawyers">Lawyers</Link>
-        </li> : null}
+        {localStorage.getItem("token") ? (
+          <li>
+            <Link to="/lawyers">Lawyers</Link>
+          </li>
+        ) : (
+          Navigate("/")
+        )}
         <li>
           <Link to="/practice">Practice Areas</Link>
         </li>
@@ -94,13 +98,17 @@ const Navbar = () => {
               >
                 <Link to="/about">About</Link>
               </li>
-              <li
-                onClick={() => {
-                  setToggleMenu(false);
-                }}
-              >
-                <Link to="/lawyers">Lawyers</Link>
-              </li>
+              {localStorage.getItem("token") ? (
+                <li
+                  onClick={() => {
+                    setToggleMenu(false);
+                  }}
+                >
+                  <Link to="/lawyers">Lawyers</Link>
+                </li>
+              ) : (
+                Navigate("/about")
+              )}
               <li
                 onClick={() => {
                   setToggleMenu(false);
@@ -131,12 +139,17 @@ const Navbar = () => {
                 </li>
               ) : (
                 <li>
-                  <Link to="/login">Sign in</Link> |{" "}
+                  <Link onClick={() => setToggleMenu(false)} to="/login">
+                    Sign in
+                  </Link>{" "}
+                  |{" "}
                   <div
                     onMouseEnter={() => setToggle(true)}
                     className="dropdown"
                   >
-                    <Link onClick={() => setToggle(!toggle)} to="">Sign up</Link>
+                    <Link onClick={() => setToggle(!toggle)} to="">
+                      Sign up
+                    </Link>
                     <div
                       className={
                         toggle
@@ -144,8 +157,18 @@ const Navbar = () => {
                           : "dropdown--content_hide"
                       }
                     >
-                      <Link onClick={() => setToggleMenu(false)} to="/lawyer/register">Lawyer</Link>
-                      <Link onClick={() => setToggleMenu(false)} to="/client/register">Client</Link>
+                      <Link
+                        onClick={() => setToggleMenu(false)}
+                        to="/lawyer/register"
+                      >
+                        Lawyer
+                      </Link>
+                      <Link
+                        onClick={() => setToggleMenu(false)}
+                        to="/client/register"
+                      >
+                        Client
+                      </Link>
                     </div>
                   </div>
                 </li>

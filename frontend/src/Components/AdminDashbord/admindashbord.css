@@ -24,7 +24,6 @@
 .dahsboard--users {
     display: flex;
     justify-content: space-between;
-    width: 205px;
     margin-bottom: 1rem;
 }
 

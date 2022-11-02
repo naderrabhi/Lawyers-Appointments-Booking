@@ -21,7 +21,7 @@ const Profile = ({ user }) => {
   if (!loading) {
     return (
       <>
-        {User.role === "lawyer" ? (
+        {User.role === "lawyer" && Profile ? (
           <ProfileLawyer profile={Profile} />
         ) : (
           <ProfileClient user={User} />
