@@ -53,6 +53,7 @@ export const getMyProfile = () => async (dispatch) => {
         },
       }
     );
+    console.log(response.data);
     dispatch({type : GET_My_PROFILE_SUCCESS, payload: response.data})
   } catch (error) {
     dispatch({ type: GET_My_PROFILE_FAIL, payload: error });

@@ -38,9 +38,8 @@ const LawyerEdit = ({profile,handleClose}) => {
 }
   })
   const handleSave = () => {
-    dispatch(postProfile(data))
-    handleClose()
-    console.log(data)
+    dispatch(postProfile(data));
+    handleClose();
   }
   return (
     <>

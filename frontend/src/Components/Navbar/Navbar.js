@@ -22,9 +22,9 @@ const Navbar = () => {
         <li>
           <Link to="/about">About</Link>
         </li>
-        <li>
+        {localStorage.getItem('token') ? <li>
           <Link to="/lawyers">Lawyers</Link>
-        </li>
+        </li> : null}
         <li>
           <Link to="/practice">Practice Areas</Link>
         </li>

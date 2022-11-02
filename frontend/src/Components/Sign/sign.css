@@ -39,6 +39,18 @@
     margin-bottom: 3rem;
 }
 
+.sign--in_signup {
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.sign--in_signup a {
+    font-size: 1.2rem;
+    color: #F6F7EB;
+    margin-left: 2rem;
+}
+
 .sign--form_sign button {
     background-color: #F6F7EB;
     font-size: 1rem;
@@ -48,6 +60,7 @@
     width: 100%;
     font-weight: bold;
     border-radius: 30px;
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 1360px){

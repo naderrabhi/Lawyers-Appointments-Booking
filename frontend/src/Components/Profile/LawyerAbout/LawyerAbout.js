@@ -13,7 +13,7 @@ const LawyerAbout = ({ profile }) => {
           <label>First Name</label>
         </div>
         <div className="col-md-6">
-          <p>{profile && profile.userID && profile.userID.firstName}</p>
+          <p>{profile && profile.lawyerID && profile.lawyerID.firstName}</p>
         </div>
       </div>
       <div className="row">
@@ -21,7 +21,7 @@ const LawyerAbout = ({ profile }) => {
           <label>Last Name</label>
         </div>
         <div className="col-md-6">
-          <p>{profile && profile.userID && profile.userID.lastName}</p>
+          <p>{profile && profile.lawyerID && profile.lawyerID.lastName}</p>
         </div>
       </div>
       <div className="row">
@@ -29,7 +29,7 @@ const LawyerAbout = ({ profile }) => {
           <label>Email</label>
         </div>
         <div className="col-md-6">
-          <p>{profile && profile.userID && profile.userID.email}</p>
+          <p>{profile && profile.lawyerID && profile.lawyerID.email}</p>
         </div>
       </div>
       <div className="row">
@@ -37,7 +37,7 @@ const LawyerAbout = ({ profile }) => {
           <label>Phone</label>
         </div>
         <div className="col-md-6">
-          <p>{profile && profile.phone && profile.phone}</p>
+          <p>{profile && profile.phone}</p>
         </div>
       </div>
       <div className="row">

@@ -9,6 +9,9 @@ import {
   GET_ONE_PROFILE_LOADING,
   DEL_PROFILE_SUCCESS,
   DEL_PROFILE_FAIL,
+  GET_My_PROFILE_LOADING,
+  GET_My_PROFILE_SUCCESS,
+  GET_My_PROFILE_FAIL,
 } from "../const/profile.js";
 
 const initialState = {
@@ -40,6 +43,13 @@ export const profile = (state = initialState, { type, payload }) => {
     case GET_ONE_PROFILE_SUCCESS:
       return { ...state, loading: false, Profile: {...payload[0]} };
     case GET_ONE_PROFILE_FAIL:
+      return { ...state, loading: false, error: payload };
+
+    case GET_My_PROFILE_LOADING:
+      return { ...state, loading: true };
+    case GET_My_PROFILE_SUCCESS:
+      return { ...state, loading: false, Profile: payload };
+    case GET_My_PROFILE_FAIL:
       return { ...state, loading: false, error: payload };
 
     case DEL_PROFILE_SUCCESS:

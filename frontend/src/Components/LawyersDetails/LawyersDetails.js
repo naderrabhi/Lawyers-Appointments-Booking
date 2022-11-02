@@ -52,7 +52,7 @@ const LawyersDetails = () => {
                 <div className="lawyer--details_btn">
                   <button onClick={()=> handleShow()} className="btn btn-sm btn-primary">Get an appointment</button>
                   <Modal show={show} onHide={handleClose}>
-                    <Booking handleClose={handleClose} id={id} />
+                    <Booking handleClose={handleClose} id={profile.lawyerID && profile.lawyerID._id} />
                   </Modal>
                 </div>
               </div>

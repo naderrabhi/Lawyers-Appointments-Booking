@@ -10,7 +10,8 @@ const Welcome = () => {
             <div className="welcome--col col-12">
                 <h5>BEST LAW AGENCY</h5>
                 <p>Our Fighting Is For Your Justice</p>
-                <Link to='appointment'>Get an appointment</Link>
+                
+                <Link to={localStorage.getItem('token') ? '/lawyers' : '/login'}>Get an appointment</Link>
             </div>
         </div>
     </div>

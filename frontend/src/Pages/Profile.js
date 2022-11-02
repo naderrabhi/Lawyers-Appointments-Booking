@@ -1,32 +1,34 @@
 import React, { useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import ProfileClient from "../Components/Profile/ProfileClient";
 import ProfileLawyer from "../Components/Profile/ProfileLawyer";
-import {getMyProfile} from "../JS/actions/profile"
+import { getMyProfile } from "../JS/actions/profile";
 
 const Profile = ({ user }) => {
   const dispatch = useDispatch();
+  const Profile = useSelector((state) => state.profile.Profile);
+  const User = useSelector((state) => state.auth.User);
+  const loading = useSelector((state) => state.profile.loading);
+  
+  
 
   useEffect(() => {
-    dispatch(getMyProfile());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <>
-
-      {/* {profile && user.role === "lawyer" ? (
-        <ProfileLawyer profile={profile} />
-      ) : !profile && user.role === "lawyer" ? (
-        Navigate("/")
-      ) : user.role === "client" ? (
-        <ProfileClient user={user} />
-      ) : (
-        Navigate("/")
-      )} */}
-    </>
-  );
+    if (User.role == 'lawyer') {dispatch(getMyProfile())}
+  }, [])
+  
+    
+  if (!loading) {
+    return (
+      <>
+        {User.role === "lawyer" ? (
+          <ProfileLawyer profile={Profile} />
+        ) : (
+          <ProfileClient user={User} />
+        )}
+      </>
+    );
+  }
 };
 
 export default Profile;

@@ -1,26 +1,41 @@
 .user--profile {
-    margin-top: 16vh;
-    background-color: red;
+    margin-top: 10vh;
     width: 100%;
-    padding: 4rem;
-    margin: 0;
     height: 100vh;
+    padding: 4rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.user--image img {
+.user--profile_img {
+    height: 300px;
     max-width: 100%;
-    width: 650px;
-    height: 400px;
+    margin-bottom: 2rem;
 }
 
-.user--info {
-    display: flex;
-    flex-direction: column;
-    line-height: 2rem;
+.user--profile_container {
     text-align: center;
-    background-color: yellow;
-    width: 100%;
+    padding: 2rem 4rem;
+}
+
+.user--profile_col button {
+    margin-top: 1rem;
+    background-color: #361500;
+    color: white;
+    border: none;
+    padding: 0.2rem 0.4rem;
+}
+
+.user--profile_col button:nth-child(3) {
+    margin-right: 0.5rem;
+}
+
+.user--profile_app {
+    margin-top: 4rem;
+}
+
+.user--profile_info p {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
 }

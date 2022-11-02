@@ -48,7 +48,7 @@ export const loginUser = (user, navigate) => async (dispatch) => {
       `http://localhost:5000/api/v1/auth/login`,
       user
     );
-      console.log(response.data)
+      
     if (response.data.user.role === "admin") {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
       navigate("/dashboard");

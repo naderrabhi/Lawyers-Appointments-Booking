@@ -1,56 +1,74 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteAppointment,
+  getAllAppointment,
+} from "../../../JS/actions/appointment";
+import Table from "react-bootstrap/Table";
+import { FaBookOpen, FaCalendarCheck, FaCalendarTimes } from "react-icons/fa";
+import Modal from "react-bootstrap/Modal";
+import ClientDetails from "../ClientDetails/ClientDetails";
 
 const LawyerDates = () => {
-  return (
-    <div className="">
-            <div className="row">
-              <div className="col-md-6">
-                <label>Experience</label>
-              </div>
-              <div className="col-md-6">
-                <p>Expert</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label>Hourly Rate</label>
-              </div>
-              <div className="col-md-6">
-                <p>10$/hr</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label>Total Projects</label>
-              </div>
-              <div className="col-md-6">
-                <p>230</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label>English Level</label>
-              </div>
-              <div className="col-md-6">
-                <p>Expert</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label>Availability</label>
-              </div>
-              <div className="col-md-6">
-                <p>6 months</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12">
-                <label>Your Bio</label><br />
-                <p>Your detail description</p>
-              </div>
-            </div>
-          </div>
-  )
-}
+  const dispatch = useDispatch();
+  const Appointments = useSelector((state) => state.appointment.Appointments);
+  const [show, setShow] = useState(false);
 
-export default LawyerDates
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    dispatch(getAllAppointment());
+  }, []);
+
+  return (
+    <>
+      {Appointments.length == 0 ? (
+        <h1>No Client to Show</h1>
+      ) : (
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Day/Hour</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Appointments.map((app, i) => (
+              <tr key={i}>
+                <td>
+                  {app.clientID && app.clientID.firstName}{" "}
+                  {app.clientID && app.clientID.lastName}
+                </td>
+                <td>
+                  {app.day} at {app.hour}h
+                </td>
+                <td>
+                  <div className="lawyer--action">
+                    <button onClick={() => handleShow()}>
+                      <FaBookOpen />
+                    </button>
+                    <Modal show={show} onHide={handleClose}>
+                      <ClientDetails client={app} handleClose={handleClose} />
+                    </Modal>
+                    <button>
+                      <FaCalendarCheck />
+                    </button>
+                    <button
+                      onClick={() => dispatch(deleteAppointment(app._id))}
+                    >
+                      <FaCalendarTimes />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      )}
+    </>
+  );
+};
+
+export default LawyerDates;

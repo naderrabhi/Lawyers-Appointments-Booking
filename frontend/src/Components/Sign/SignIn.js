@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './sign.css'
 import background from  '../../assets/image/justice.jpg'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../JS/actions/auth';
 
 const SignIn = () => {
@@ -27,6 +27,10 @@ const SignIn = () => {
                         <input name="password" onChange={e=> setData({...data,password:e.target.value})} placeholder='Password' type="password" className='form-control mb-3' />
                         <button>Sign in</button>
                     </form>
+                    <div className="sign--in_signup">
+                    <Link to='/client/register'>Sign Up as Client</Link>
+                    <Link to='/lawyer/register'>Sign Up as Lawyer</Link>
+                    </div>
                 </div>
             </div>
         </div>

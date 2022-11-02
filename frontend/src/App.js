@@ -38,17 +38,17 @@ function App() {
         <Route path='/lawyer/register' element={<Register action={registerLawyer} title="Lawyer" />} />
         <Route path='/client/register' element={<Register action={registerClient} title="Client" />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/booking' element={<Appointment />} />
 
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/lawyers' element={<Lawyers />} />
-        <Route path='/lawyers/:id' element={<LawyersDetails />} />
         <Route path='/practice' element={<Practice />} />
         <Route path='/contact' element={<Footer />} />
 
         <Route path='/dashboard' element={<PrivateAdmin user={user}><AdminDashbord /></PrivateAdmin>} />
+        <Route path='/lawyers' element={<Lawyers />} />
         <Route path='/profile' element={<PrivateProfile user={user}><Profile user={user} /></PrivateProfile> } />
+        <Route path='/lawyers/:id' element={<LawyersDetails />} />
+        <Route path='/booking' element={<Appointment />} />
       </Routes>   
 
     </div>

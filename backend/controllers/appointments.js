@@ -52,7 +52,6 @@ const getAllAppointment = async (req, res) => {
 
 const getAllAppointmentOfOneLawyer = async (req,res) => {
     const id = req.params.id
-    console.log('id from back' , id)
     try {
         const appointments = await Appointment.find({lawyerID : id})
         console.log("appointments");

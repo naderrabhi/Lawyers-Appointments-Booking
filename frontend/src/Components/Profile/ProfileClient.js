@@ -1,24 +1,94 @@
-import React from 'react'
-import './profileclient.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteAppointment,
+  getAllAppointment,
+} from "../../JS/actions/appointment";
+import Table from "react-bootstrap/Table";
+import { FaBookOpen, FaCalendarCheck, FaCalendarTimes } from "react-icons/fa";
+import Modal from "react-bootstrap/Modal";
+import "./profileclient.css";
+import LawyerDetails from "./LawyerDetails/LawyerDetails";
 
-const ProfileClient = ({user}) => {
+const ProfileClient = ({ user }) => {
+  const dispatch = useDispatch();
+  const Appointments = useSelector((state) => state.appointment.Appointments);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  useEffect(() => {
+    dispatch(getAllAppointment());
+  }, []);
+
   return (
-    <div className='user--profile'>
-      <div className="user--image">
-        <img src="./nader.png" alt="" />
-      </div>
-      <div className="user--info">
-        <div className="name">
-          <h1>{user.firstName}</h1>
-          <h1>{user.lastName}</h1>
+    <div className="user--profile">
+      <div className="container user--profile_container">
+        <div className="row user--profile_row">
+          <div className="col-md-4 user--profile_col">
+            <img className="user--profile_img" src="./nader.png" alt="" />
+          </div>
+
+          <div className="col-md-8 user--profile_info">
+            <p>First Name : {user.firstName}</p>
+            <p>First Name : {user.lastName}</p>
+            <p>Email : {user.email}</p>
+            <div className="user--profile_app">
+              {!Appointments.length == 0 ? (
+                <Table striped bordered hover variant="dark">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Day/Hour</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Appointments.map((app, i) => (
+                      <tr key={i}>
+                        <td>
+                          {app.lawyerID && app.lawyerID.firstName}{" "}
+                          {app.lawyerID && app.lawyerID.lastName}
+                        </td>
+                        <td>
+                          {app.day} at {app.hour}h
+                        </td>
+                        <td>
+                          <div className="lawyer--action">
+                            <button onClick={() => handleShow()}>
+                              <FaBookOpen />
+                            </button>
+                            <Modal show={show} onHide={handleClose}>
+                              <LawyerDetails
+                                lawyer={app}
+                                handleClose={handleClose}
+                              />
+                            </Modal>
+                            <button>
+                              <FaCalendarCheck />
+                            </button>
+                            <button
+                              onClick={() =>
+                                dispatch(deleteAppointment(app._id))
+                              }
+                            >
+                              <FaCalendarTimes />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              ) : (
+                <h1>You Have No Appointment</h1>
+              )}
+            </div>
+          </div>
         </div>
-        <p>Email : {user.email}</p>
-      </div>
-      <div className="user--app">
-        <p>{user.appoitnmentID && user.appoitnmentID.day}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileClient
+export default ProfileClient;
