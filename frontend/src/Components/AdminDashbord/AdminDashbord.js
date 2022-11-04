@@ -62,7 +62,7 @@ const AdminDashbord = () => {
                   <Modal show={show} onHide={handleClose}>
                     <ModalDetails User={User} handleClose={handleClose} />
                   </Modal>
-                <button onClick={()=> dispatch(deleteUser(User._id))} className="btn btn-danger btn-sm">delete</button>
+                <button onClick={()=> dispatch(deleteUser(user._id))} className="btn btn-danger btn-sm">delete</button>
               </td>
             </tr>))}
           </tbody>

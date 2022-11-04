@@ -19,7 +19,7 @@ const ProfileLawyer = ({profile}) => {
     <div className="row">
       <div className="col-md-4">
         <div className="profile-img">
-          <img src="/nader.jfif" alt="" />
+          <img src={profile && profile.image} alt="" />
           <div className="file btn btn-lg btn-primary">
             Change Photo
           <input type="file" name="file" />

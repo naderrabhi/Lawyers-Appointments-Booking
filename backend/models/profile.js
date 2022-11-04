@@ -5,10 +5,13 @@ const profileSchema = new mongoose.Schema({
     type : mongoose.Schema.Types.ObjectId,
     ref : 'user'
   },
-  photo: {
+  image: {
     type: String,
   },
   address: {
+    type: String,
+  },
+  specialty : {
     type: String,
   },
   bio: {

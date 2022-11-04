@@ -1,6 +1,8 @@
 const Profile = require('../models/profile')
 
 const createProfile = async (req,res) => {
+    console.log(req.body.education)
+    const url = `${req.protocol}://${req.get('host')}`;
 
 if (req.body.education) {
     const education = req.body.education[0]
@@ -39,6 +41,7 @@ const social = req.body.social
             return res.send({updatedProfile})
         }
         const newProfile = await new Profile({...req.body,lawyerID : req.user._id})
+        if (url) {newProfile.image = `${url}/${req.file.path}`}
         await newProfile.save()
         res.send(newProfile)
     } catch (error) {

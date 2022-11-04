@@ -58,7 +58,7 @@ const loginUser = async (req, res) => {
       }
       const payload = { id: existUser._id };
       const token = await jwt.sign(payload, process.env.privateKey);
-      return res.send({ user: existUser, token });
+      return res.send({msg : "login successfully ", user: existUser, token });
 
   } catch (error) {
     res.status(400).send({ msg: error.message });

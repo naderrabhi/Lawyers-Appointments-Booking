@@ -35,7 +35,7 @@ const LawyersDetails = () => {
         <div className="container lawyer--container">
           <div className="row lawyer--details_row">
             <div className="col-md-6 col-lg-6 col-sm-12">
-              <img className="lawyer--details_img" src="/nader.jfif" alt="" />
+              <img className="lawyer--details_img" src={profile.image} alt={profile.lawyerID && profile.lawyerID.firstName} />
             </div>
             <div className="col-md-6 col-lg-6 col-sm-12">
               <div className="lawyer--details_info">
