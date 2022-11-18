@@ -1,23 +1,19 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const isAuth = require('../middlewares/isAuth')
-const {createProfile,getAllProfiles,getMyProfile,getOneProfile, deleteProfile} = require('../controllers/profiles')
-const upload = require('../utils/multer')
+const isAuth = require("../middlewares/isAuth");
+const {
+  createProfile,
+  getAllProfiles,
+  getMyProfile,
+  getOneProfile,
+  deleteProfile,
+} = require("../controllers/profiles");
+const upload = require("../utils/multer");
 
-//http://localhost:5000/api/v1/profiles/my_profile
-router.get('/my_profile',isAuth(),getMyProfile)
+router.get("/my_profile", isAuth(), getMyProfile);
+router.put("/", upload("profile").single("fileName"), isAuth(), createProfile);
+router.get("/", isAuth(), getAllProfiles);
+router.get("/:id", isAuth(), getOneProfile);
+router.delete("/:id", isAuth(), deleteProfile);
 
-//http://localhost:5000/api/v1/profiles
-router.put('/',upload("profile").single("fileName"),isAuth(),createProfile)
-
-//http://localhost:5000/api/v1/profiles
-router.get('/',isAuth(),getAllProfiles)
-
-//http://localhost:5000/api/v1/profiles/636041e6e844d99654057f3d
-router.get('/:id',isAuth(),getOneProfile)
-
-//http://localhost:5000/api/v1/profiles/636041e6e844d99654057f3d
-router.delete('/:id',isAuth(),deleteProfile)
-
-
-module.exports = router
+module.exports = router;

@@ -23,3 +23,7 @@ a {
   color: unset;
   text-decoration: none;
 }
+
+li {
+  list-style-type: none;
+}

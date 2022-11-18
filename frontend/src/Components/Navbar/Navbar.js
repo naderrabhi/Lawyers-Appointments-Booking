@@ -55,10 +55,13 @@ const Navbar = () => {
         ) : (
           <li>
             <Link to="/login">Sign in</Link> |{" "}
-            <div onMouseEnter={() => setToggle(true)} className="dropdown">
+            <div
+              onMouseEnter={() => setToggle(true)}
+              onMouseLeave={() => setToggle(false)}
+              className="dropdown"
+            >
               <Link to="">Sign up</Link>
               <div
-                onMouseLeave={() => setToggle(false)}
                 className={
                   toggle ? "dropdown--content_show" : "dropdown--content_hide"
                 }
@@ -143,7 +146,7 @@ const Navbar = () => {
                   </Link>{" "}
                   |{" "}
                   <div
-                    onMouseEnter={() => setToggle(true)}
+                    onClick={() => setToggle(!toggle)}
                     className="dropdown"
                   >
                     <Link onClick={() => setToggle(!toggle)} to="">

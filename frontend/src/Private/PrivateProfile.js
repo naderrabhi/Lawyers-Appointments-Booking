@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
+import { Navigate } from "react-router-dom";
 
-import { Navigate} from 'react-router-dom'
-
-
-const PrivateProfile = ({children,user}) => {
+const PrivateProfile = ({ children, user }) => {
   return (
-    <>
-        <div>
-            {localStorage.getItem("token") && (user.role === "lawyer" || user.role ==="client") ? children : <Navigate to="/" />}
-        </div>
-    </>
-  )
-}
+    <div>
+      {localStorage.getItem("token") &&
+      (user.role === "lawyer" || user.role === "client") ? (
+        children
+      ) : (
+        <Navigate to="/" />
+      )}
+    </div>
+  );
+};
 
-export default PrivateProfile
+export default PrivateProfile;

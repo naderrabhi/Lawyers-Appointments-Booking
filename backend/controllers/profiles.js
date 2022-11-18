@@ -66,7 +66,6 @@ const getAllProfiles = async (req, res) => {
         "lawyerID",
         "-password"
       );
-      console.log("hi");
       return res.send(profiles);
     }
   } catch (error) {

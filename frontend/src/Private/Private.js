@@ -1,16 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Navigate } from "react-router-dom";
 
-import { Navigate} from 'react-router-dom'
-
-
-const Private = ({children}) => {
+const Private = ({ children }) => {
   return (
-    <>
-        <div>
-            {localStorage.getItem("token") ? children : <Navigate to="/" />}
-        </div>
-    </>
-  )
-}
+    <div>{localStorage.getItem("token") ? children : <Navigate to="/" />}</div>
+  );
+};
 
-export default Private
+export default Private;

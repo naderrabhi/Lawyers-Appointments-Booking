@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const profileSchema = new mongoose.Schema({
-  lawyerID : {
-    type : mongoose.Schema.Types.ObjectId,
-    ref : 'user'
+  lawyerID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   },
   image: {
     type: String,
@@ -18,51 +18,10 @@ const profileSchema = new mongoose.Schema({
     type: String,
   },
   specialty: {
-    type : String,
+    type: String,
   },
   name: {
-    type : String,
-  },
-  experience: [
-    {
-      company: {
-        type: String,
-        required: true,
-      },
-      from: {
-        type: String,
-        required: true,
-      },
-      to: {
-        type: String,
-      },
-    },
-  ],
-  education: [
-    {
-      degree: {
-        type: String,
-        required: true,
-      },
-      from: {
-        type: String,
-        required: true,
-      },
-      to: {
-        type: String,
-      },
-    },
-  ],
-  social: {
-    twitter: {
-      type: String,
-    },
-    facebook: {
-      type: String,
-    },
-    linkedin: {
-      type: String,
-    },
+    type: String,
   },
   date: {
     type: Date,

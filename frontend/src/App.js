@@ -1,14 +1,12 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 
 import {
   getCurrentUser,
   registerClient,
   registerLawyer,
 } from "./JS/actions/auth";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
 
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -32,6 +30,9 @@ import PrivateProfile from "./Private/PrivateProfile";
 import Private from "./Private/Private";
 import Layout from "./Pages/Layout";
 
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.User);
@@ -48,13 +49,13 @@ function App() {
       <Routes>
         <Route
           path="/lawyer/register"
-          element={<SignUpAsLawyer action={registerLawyer} />}
+          element={<Layout><SignUpAsLawyer action={registerLawyer} /></Layout>}
         />
         <Route
           path="/client/register"
-          element={<SignUpAsClient action={registerClient} />}
+          element={<Layout><SignUpAsClient action={registerClient} /></Layout>}
         />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Layout><Login /></Layout>} />
 
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

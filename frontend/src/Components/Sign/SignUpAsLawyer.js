@@ -1,7 +1,8 @@
 import React from "react";
-import background from "../../assets/image/gavel1.jpg";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import background from "../../assets/image/gavel1.jpg";
 
 import "./sign.css";
 
@@ -37,13 +38,13 @@ const SignUpAsLawyer = ({ action }) => {
 
   return (
     <div
-      className="sign"
+      className="sign section__padding"
       style={{
         backgroundImage: `url(${background})`,
         backgroundPosition: "center",
       }}
     >
-      <div className="container sign--content">
+      <div className="container sign--content ">
         <div className="row sign--row">
           <div className="sign--form_sign">
             <h3 className="p__opensans">Sign up for Lawyer</h3>
