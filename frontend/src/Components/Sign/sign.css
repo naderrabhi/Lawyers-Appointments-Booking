@@ -28,12 +28,13 @@
 .sign--form_sign {
     width: 50%;
     padding: 2rem;
-    background: rgb(39,10,4,0.6);
+    background: rgb(39,10,4,0.2);
     border-radius: 3%;
 }
 
 .sign--form_sign h3 {
     font-size: 2.5rem;
+    font-family: var(--font-base);
     text-align: center;
     color: #F6F7EB;
     margin-bottom: 3rem;
@@ -47,31 +48,28 @@
 
 .sign--in_signup a {
     font-size: 1.2rem;
-    color: #F6F7EB;
+    color: var(--color-white);
+    font-family: var(--font-base);
     margin-left: 2rem;
 }
 
 .sign--form_sign button {
-    background-color: #F6F7EB;
-    font-size: 1rem;
+    background-color: var(--color-golden);
+    font-family: var(--font-base);
+    font-size: 1.2rem;
     color: black;
     border: none;
-    padding: 0.5rem;
+    padding: 0.3rem;
     width: 100%;
     font-weight: bold;
     border-radius: 30px;
     margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 1360px){
-    
-}
-
 @media screen and (max-width: 1050px){
     .sign--form_sign {
         width: 100%;
     }
-    
 }
 
 @media screen and (max-width: 450px){

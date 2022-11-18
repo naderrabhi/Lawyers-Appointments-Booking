@@ -19,12 +19,13 @@ const LawyerDates = () => {
 
   useEffect(() => {
     dispatch(getAllAppointment());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      {Appointments.length == 0 ? (
-        <h1>No Client to Show</h1>
+      {Appointments.length === 0 ? (
+        <h1 className="no--client">No Client to Show</h1>
       ) : (
         <Table striped bordered hover variant="dark">
           <thead>

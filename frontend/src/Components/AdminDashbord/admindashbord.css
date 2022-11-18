@@ -1,7 +1,6 @@
 .dashbord {
     height: 100vh;
-    margin-top: 12vh;
-    padding: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -27,6 +26,22 @@
     margin-bottom: 1rem;
 }
 
+.dahsboard--users button {
+    background: var(--color-golden);
+    color: var(--color-black);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: var(--font-base);
+    font-weight: bold;
+}
+
+.dahsboard--users {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
 .dashboard--header input {
     width: 250px;
     margin-bottom: 1rem;
@@ -39,5 +54,10 @@
 @media screen and (max-width: 400px) {
     .dashboard--header {
         flex-direction: column;
+    }
+    .dashbord {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
     }
 }

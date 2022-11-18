@@ -1,131 +1,62 @@
-
-.emp-profile{
+.profile--lawyer{
     height: 100vh;
-    padding: 4rem 1rem;
-    margin-top: 14vh;
-    margin-bottom: 3%;
-    border-radius: 0.5rem;
-    background: #fff;
-    text-align: center;
-}
-
-.profile-head {
-    margin-top: 2rem;
-    line-height: 2rem;
-}
-
-.profile-img{
-    text-align: center;
-}
-.profile-img img{
-    width: 70%;
-    height: 300px;
-    
-}
-.profile-img .file {
-    position: relative;
-    overflow: hidden;
-    margin-top: -20%;
-    width: 51%;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    background: #212529b8;
-    cursor: pointer;
-}
-.profile-img .file input {
-    position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
-}
-.profile-head h5{
-    color: #c4964b;
-    font-size: 3rem;
-    font-weight: 800;
-}
-.profile-head h6{
-    color: #361500;
-    font-size: 1.2rem;
-}
-
-.profile-head h6:last-child{
-    color: #361500;
-    margin-bottom: 5rem;
-}
-.profile-edit-btn{
-    border: none;
-    border-radius: 1.5rem;
-    width: 70%;
-    padding: 2%;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-    background-color: #361500;
-}
-
-button.btn.btn-primary.btn-sm {
-    background: #361500;
-    border: none;
-    padding: 0.2rem 0.5rem;
-}
-
-.proile-rating{
-    font-size: 12px;
-    color: #818182;
-    margin-top: 5%;
-}
-.proile-rating span{
-    color: #495057;
-    font-size: 15px;
-    font-weight: 600;
-}
-.profile-head .nav-tabs{
-    margin-bottom: 15%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-black);
+}
+
+.profile--lawyer_container {
+    height: auto;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
 }
-.profile-head .nav-tabs .nav-link{
-    font-weight:600;
+
+.profile--lawyer_img {
+    background-color: var(--color-golden);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile--lawyer_img img{
+    padding-top: 1rem;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.profile--lawyer_img button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--color-white);
+    font-family: var(--font-base);
     border: none;
+    padding: 0.5rem 1rem;
 }
 
-li.nav-item {
-    margin-right: 0.5rem;
-    margin-top: 1.7rem;
+.profile--lawyer_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.profile-head .nav-tabs .nav-link.active{
-    border: none;
-    border-bottom:2px solid #0062cc;
-    
-}
-.profile-work{
-    margin-top: -9%;
-}
-
-.profile-work h5{
-    font-size: 2rem;
-    color: #818182;
-    font-weight: 600;
-    margin-top: 10%;
-}
-.profile-work a{
-    text-decoration: none;
-    color: #495057;
-    font-weight: 600;
-    font-size: 14px;
-}
-.profile-work ul{
-    list-style: none;
-}
-.profile-tab label{
-    font-weight: 600;
-}
-.profile-tab p{
-    font-weight: 600;
-    color: #0062cc;
+.profile-head h5,
+.profile-head h6 {
+    font-size: 1.8rem;
+    font-family: var(--font-base);
+    color: var(--color-white);
+    margin-bottom: 2rem;
 }
 
 .lawyer--action {
@@ -135,6 +66,29 @@ li.nav-item {
 
 .lawyer--action button {
     border: none;
-    background: #c4964b;
-    color: white;
+    background: var(--color-golden);
+    color: var(--color-white);
+}
+
+.no--client {
+    color: var(--color-golden);
+    font-family: var(--font-base);
+}
+
+@media screen and (max-width: 1050px) {
+    .profile--lawyer {
+        height: 100%;
+    }
+    .profile--lawyer_container {
+        flex-direction: column;
+        border-radius: 0;
+    }
+    .profile--lawyer_img {
+        border-radius: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .profile-head {
+        margin-bottom: 3rem;
+    }
 }

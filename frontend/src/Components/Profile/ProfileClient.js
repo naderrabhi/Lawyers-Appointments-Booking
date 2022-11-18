@@ -7,8 +7,9 @@ import {
 import Table from "react-bootstrap/Table";
 import { FaBookOpen, FaCalendarCheck, FaCalendarTimes } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
-import "./profileclient.css";
 import LawyerDetails from "./LawyerDetails/LawyerDetails";
+
+import "./profileclient.css";
 
 const ProfileClient = ({ user }) => {
   const dispatch = useDispatch();
@@ -19,22 +20,19 @@ const ProfileClient = ({ user }) => {
   const handleShow = () => setShow(true);
   useEffect(() => {
     dispatch(getAllAppointment());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="user--profile">
+    <div className="user--profile section__padding">
       <div className="container user--profile_container">
         <div className="row user--profile_row">
-          <div className="col-md-4 user--profile_col">
-            <img className="user--profile_img" src="./nader.png" alt="" />
-          </div>
-
-          <div className="col-md-8 user--profile_info">
+          <div className="user--profile_info">
             <p>First Name : {user.firstName}</p>
             <p>First Name : {user.lastName}</p>
             <p>Email : {user.email}</p>
             <div className="user--profile_app">
-              {!Appointments.length == 0 ? (
+              {!Appointments.length === 0 ? (
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>

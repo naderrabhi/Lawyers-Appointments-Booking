@@ -38,7 +38,8 @@
     margin-top: 3rem;
     font-size: 3rem;
     font-weight: 700;
-    color : #c4964b;
+    color : var(--color-golden);
+    font-family: var(--font-base);
 }
 
 .booking-date {
@@ -53,15 +54,18 @@
 }
 
 .booking--btn {
-    background-color: #c4964b;
-    color: #17140f;
+    background-color: var(--color-golden);
+    color: var(--color-black);
+    font-family: var(--font-base);
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .booking--btn:hover {
-    background-color: #c4964b;
-    color: #17140f;
+    background-color: var(--color-golden);
+    color: var(--color-black);
     transform: scale(1.05);
-    transition: 0.5s ease;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 2000px) {

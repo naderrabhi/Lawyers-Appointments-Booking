@@ -73,13 +73,13 @@ export const getOneAppointment = (id) => async (dispatch) => {
   }
 };
 
-export const getOneAppointmentOfLawyer = (id) => async (dispatch) => {
+export const getOneAppointmentOfLawyer = (id,day) => async (dispatch) => {
   console.log('id from action' , id)
   const token = localStorage.getItem("token");
   dispatch({ type: GET_LAWYER_APPOINTMENT_LOADING });
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/booking/${id}`,
+      `http://localhost:5000/api/v1/booking/${id}/?day=${day}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

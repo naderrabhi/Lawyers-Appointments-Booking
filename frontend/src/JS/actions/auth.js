@@ -11,7 +11,6 @@ import {
   REGISTER_SUCCESS,
 } from "../const/auth";
 import { setAlert } from "./alert";
-import { getMyProfile, getOneProfile } from "./profile";
 
 export const registerLawyer = (newLawyer, navigate) => async (dispatch) => {
   dispatch({ type: REGISTER_LOADING });

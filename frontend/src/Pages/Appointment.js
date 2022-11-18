@@ -1,12 +1,12 @@
-import React from 'react'
-import Booking from '../Components/Booking/Booking'
+import React from "react";
+import Booking from "../Components/Booking/Booking";
 
 const Appointment = () => {
   return (
     <>
-        <Booking />    
+      <Booking />
     </>
-  )
-}
+  );
+};
 
-export default Appointment
+export default Appointment;

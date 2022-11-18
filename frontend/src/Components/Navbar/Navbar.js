@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { FaAlignJustify, FaWindowClose } from "react-icons/fa";
-import "./navbar.css";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { FaAlignJustify, FaWindowClose } from "react-icons/fa";
 import { logOut } from "../../JS/actions/auth";
 
+import "./navbar.css";
+
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.User);
+
   const [toggle, setToggle] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
-  const user = useSelector((state) => state.auth.User);
-  const dispatch = useDispatch();
+
   return (
     <nav className="app--header">
       <div className="header--logo">
@@ -26,9 +29,7 @@ const Navbar = () => {
           <li>
             <Link to="/lawyers">Lawyers</Link>
           </li>
-        ) : (
-          null
-        )}
+        ) : null}
         <li>
           <Link to="/practice">Practice Areas</Link>
         </li>
@@ -106,9 +107,7 @@ const Navbar = () => {
                 >
                   <Link to="/lawyers">Lawyers</Link>
                 </li>
-              ) : (
-                null
-              )}
+              ) : null}
               <li
                 onClick={() => {
                   setToggleMenu(false);

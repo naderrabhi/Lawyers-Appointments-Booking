@@ -20,7 +20,7 @@ export const getAllUser = (role,name) => async (dispatch) => {
   }
 };
 
-export const deleteUser = (id) => async (dispatch) => {
+export const deleteUser = (id,role,name) => async (dispatch) => {
   const token = localStorage.getItem("token");
   try {
     const response = await axios.delete(
@@ -33,7 +33,7 @@ export const deleteUser = (id) => async (dispatch) => {
     );
     dispatch({ type: DELETE_USER_SUCCESS, payload: response.data });
     dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
-    dispatch(getAllUser());
+    dispatch(getAllUser(role,name));
   } catch (error) {
     dispatch({ type: DELETE_USER_FAIL, payload: error });
     dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));

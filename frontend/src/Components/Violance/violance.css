@@ -1,0 +1,71 @@
+.violance {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    margin-top: 12vh;
+}
+
+.violance--content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-top: -10vh;
+}
+
+.violance--col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+    line-height: 4rem;
+    color: var(--color-white);
+}
+
+.violance--col p {
+    font-size: 5rem;
+    font-family: var(--font-base);
+    font-weight: 700;
+    margin-top: 2rem;
+    text-align: center;
+    line-height: 6rem;
+}
+
+.violance--col a {
+    font-size: 2rem;
+    color: var(--color-black);
+    font-family: var(--font-base);
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: var(--color-golden);
+    padding: 0 1rem;
+    margin-top: 2rem;
+}
+
+.violance--col a:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 1060px) {
+    .violance--col p {
+        font-size: 3rem;
+        margin-top: 1.5rem;
+    }
+    
+    .violance--col a {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .violance--col p {
+        font-size: 2rem;
+        margin-top: 1.5rem;
+    }
+}

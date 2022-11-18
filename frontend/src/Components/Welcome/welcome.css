@@ -26,28 +26,28 @@
     color: #F6F7EB;
 }
 
-.welcome--col h5 {
-    font-size: 3rem;
-}
-
 .welcome--col p {
     font-size: 5rem;
-    margin-top: 2rem;
+    text-align: center;
+    font-family: var(--font-base);
+    font-weight: 700;
+    line-height: 6rem;
 }
 
 .welcome--col a {
     font-size: 2rem;
-    color: #F6F7EB;
+    color: var(--color-black);
+    font-family: var(--font-base);
     text-decoration: none;
     border-radius: 30px;
-    background-color: #c4964b;
-    padding: 0.5rem 1rem;
+    background-color: var(--color-golden);
+    padding: 0 1rem;
     margin-top: 2rem;
 }
 
 .welcome--col a:hover {
     transform: scale(1.05);
-    transition: 0.8s ease;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 1060px) {
@@ -74,26 +74,5 @@
     .welcome--col p {
         font-size: 2rem;
         margin-top: 1.5rem;
-    }
-    
-    .welcome--col a {
-        padding: 0.2rem;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .welcome--col h5 {
-        font-size: 1.4rem;
-    }
-    
-    .welcome--col p {
-        font-size: 1.5rem;
-        margin-top: 0;
-    }
-    
-    .welcome--col a {
-        padding: 0 1rem;
-        font-size: 1.1rem;
-        margin-top: 0;
     }
 }

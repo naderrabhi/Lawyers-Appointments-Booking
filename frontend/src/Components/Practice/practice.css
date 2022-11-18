@@ -2,31 +2,33 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    margin-top: 12vh;
-    background-color: #17140f;
+    background-color: var(--color-black);
 }
 
 .parctice--content {
     height: 100%;
     width: 100%;
-    padding: 4rem;
+    
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #F6F7EB ;
+    color: var(--color-white);
     line-height: 2rem;
 }
 
 .practice--header h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #c4964b;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-golden);
+    font-family: var(--font-base);
 }
 
 .practice--header p {
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--color-gray);
+    font-family: var(--font-base);
+    font-weight: 700;
 }
 
 .practice--body {
@@ -40,17 +42,30 @@
 }
 
 .practice--col h5 {
-    color: #c4964b;
+    color: var(--color-golden);
+    font-family: var(--font-base);
+    font-weight: bold;
+}
+
+.practice--col p {
+    color: var(--color-white);
+    font-family: var(--font-base);
+    font-weight: bold;
 }
 
 .practice--col svg{
     margin-bottom: 1.5rem;
 }
 
-.practice--col:hover {
+.practice--col:hover{
     cursor:pointer;
-    background-color: #F6F7EB;
-    color: #c4964b;
+    background-color: var(--color-golden);
+}
+
+.practice--col:hover svg,
+.practice--col:hover p,
+.practice--col:hover h5{
+    color: var(--color-black);
 }
 
 @media screen and (max-width: 1200px) {

@@ -43,7 +43,7 @@ export const appointment = (state = initialState, { type, payload }) => {
     case GET_LAWYER_APPOINTMENT_LOADING:
       return { ...state, loading: true };
     case GET_LAWYER_APPOINTMENT_SUCCESS:
-      return { ...state, loading: false, lawyerAppointment: payload };
+      return { ...state, loading: false, lawyerAppointment: [...payload] };
     case GET_LAWYER_APPOINTMENT_FAIL:
       return { ...state, loading: false, error: payload };
 

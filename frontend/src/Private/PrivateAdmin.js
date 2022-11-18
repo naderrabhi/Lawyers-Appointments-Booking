@@ -7,8 +7,8 @@ const PrivateAdmin = ({children,user}) => {
     
   return (
     <>
-        <div>
-            {localStorage.getItem("token") && user.role == "admin" ? children : <Navigate to="/" />}
+        <div className='section__padding' style={{background : "var(--color-black)"}}>
+            {localStorage.getItem("token") && user.role === "admin" ? children : <Navigate to="/" />}
         </div>
     </>
   )

@@ -11,14 +11,17 @@ const profileSchema = new mongoose.Schema({
   address: {
     type: String,
   },
-  specialty : {
-    type: String,
-  },
   bio: {
     type: String,
   },
   phone: {
     type: String,
+  },
+  specialty: {
+    type : String,
+  },
+  name: {
+    type : String,
   },
   experience: [
     {

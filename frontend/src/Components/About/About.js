@@ -1,10 +1,11 @@
 import React from "react";
-import "./about.css";
 import about from "../../assets/image/about.jpg";
+
+import "./about.css";
 
 const About = () => {
   return (
-    <div className="about" id="about">
+    <div className="about section__padding" id="about">
       <div className="container about--content">
         <div className="row about--row">
           <div className="col col-md-12 col-lg-6 col-sm-12 about--col">

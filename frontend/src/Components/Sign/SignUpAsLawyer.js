@@ -1,8 +1,9 @@
 import React from "react";
-import "./sign.css";
-import background from "../../assets/image/justice.jpg";
+import background from "../../assets/image/gavel1.jpg";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import "./sign.css";
 
 const specialty = [
   "bankruptcy",
@@ -13,9 +14,10 @@ const specialty = [
   "family",
 ];
 
-const SignUpAsLawyer = ({ action}) => {
+const SignUpAsLawyer = ({ action }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,7 +26,7 @@ const SignUpAsLawyer = ({ action}) => {
         {
           email: data.get("email"),
           password: data.get("password"),
-          specialty : data.get("specialty"),
+          specialty: data.get("specialty"),
           firstName: data.get("firstName"),
           lastName: data.get("lastName"),
         },
@@ -32,15 +34,19 @@ const SignUpAsLawyer = ({ action}) => {
       )
     );
   };
+
   return (
     <div
       className="sign"
-      style={{ backgroundImage: `url(${background})`, opacity: 0.94 }}
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+      }}
     >
       <div className="container sign--content">
         <div className="row sign--row">
           <div className="sign--form_sign">
-            <h3>Sign up for Lawyer</h3>
+            <h3 className="p__opensans">Sign up for Lawyer</h3>
             <form method="post" onSubmit={handleSubmit}>
               <input
                 required
@@ -81,7 +87,7 @@ const SignUpAsLawyer = ({ action}) => {
                 type="password"
                 className="form-control mb-3"
               />
-              <button>Sign up</button>
+              <button className="p__opensans">Sign up</button>
             </form>
           </div>
         </div>

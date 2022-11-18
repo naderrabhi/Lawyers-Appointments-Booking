@@ -3,6 +3,8 @@ const Appointment = require('../models/appointments')
 const createAppointment = async (req, res) => {
     const lawyerID = req.params.id
     const clientID = req.user._id
+
+    console.log(req.body);
     
     const {day,hour} = req.body
     try {
@@ -52,9 +54,9 @@ const getAllAppointment = async (req, res) => {
 
 const getAllAppointmentOfOneLawyer = async (req,res) => {
     const id = req.params.id
+    const day = req.query.day
     try {
-        const appointments = await Appointment.find({lawyerID : id})
-        console.log("appointments");
+        const appointments = await Appointment.find({lawyerID : id , day : day})
         if (!appointments) return res.status(404).send({ msg:"No appointments found"})
         res.send(appointments)
     } catch (error) {
