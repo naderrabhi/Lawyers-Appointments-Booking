@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Alerts />
+      <Layout><Alerts /></Layout>
       <Routes>
         <Route
           path="/lawyer/register"

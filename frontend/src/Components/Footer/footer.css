@@ -19,7 +19,6 @@
 .footer--body {
     width: 100%;
     height: 50vh;
-    margin-top: 5rem;
     margin-left: 0;
     padding: 4rem;
 }
@@ -31,6 +30,10 @@
     font-size: 2rem;
     line-height: 2rem;
     color: var(--color-white);
+    display: flex;
+    flex-direction : row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer--body_col h3 {
@@ -68,17 +71,16 @@
 .footer--icons svg:hover {
     transform: scale(1.1);
     transition: 0.5s;
+    color: var(--color-golden);
 }
 
 .footer--copyright {
-    /* height: 8vh; */
     display: flex;
     justify-content: center;
     align-items: center;  
 }
 
 .footer--copyright p {
-    /* margin-top: 1rem; */
     font-size: 1.2rem;
     color: var(--color-golden);
     font-family: var(--font-base);

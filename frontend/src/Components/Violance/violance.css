@@ -1,8 +1,6 @@
 .violance {
     height: 100vh;
-    width: 100%;
     position: relative;
-    margin-top: 12vh;
 }
 
 .violance--content {
@@ -49,6 +47,7 @@
 .violance--col a:hover {
     transform: scale(1.05);
     transition: 0.5s;
+    color: var(--color-black);
 }
 
 @media screen and (max-width: 1060px) {

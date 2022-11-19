@@ -1,6 +1,5 @@
 .practice {
     height: 100vh;
-    width: 100%;
     position: relative;
     background-color: var(--color-black);
 }
@@ -8,7 +7,6 @@
 .parctice--content {
     height: 100%;
     width: 100%;
-    
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -33,12 +31,18 @@
 
 .practice--body {
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .practice--col {
     margin-bottom: 1rem;
+    width: 309px;
     font-size: 24px;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
 }
 
 .practice--col h5 {

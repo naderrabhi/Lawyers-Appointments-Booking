@@ -1,14 +1,8 @@
-.alert {
-    background-color: red;
-    margin-top: 14vh;
-    position: absolute;
-}
 
 .section__padding {
     padding: 4rem 6rem;
-  }
+}
 
-  
 .p__cormorant {
   font-family: var(--font-base);
   color: var(--color-white);

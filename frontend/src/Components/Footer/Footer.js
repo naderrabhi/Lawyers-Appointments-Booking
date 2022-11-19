@@ -30,19 +30,19 @@ const Footer = () => {
         </div>
       </div>
       <ContactForm />
-      <div className="row footer--body">
-        <div className="row footer--body_row">
-          <div className="col col-md-12 col-lg-4 col-sm-12 footer--body_col">
+      <div className="footer--body">
+        <div className="footer--body_row">
+          <div className="footer--body_col">
             <FaLocationArrow />
             <h3 className="p__opensans">Our office</h3>
             <p className="p__opensans">123 Street, Gafsa</p>
           </div>
-          <div className="col col-md-12 col-lg-4 col-sm-12 footer--body_col">
+          <div className="footer--body_col">
             <FaMailBulk />
             <h3 className="p__opensans">Email Us</h3>
             <p className="p__opensans">justice@gmail.com</p>
           </div>
-          <div className="col col-md-12 col-lg-4 col-sm-12 footer--body_col">
+          <div className="footer--body_col">
             <FaPhoneAlt />
             <h3 className="p__opensans">Call Us</h3>
             <p className="p__opensans">(+000) 123 456 789</p>
