@@ -6,21 +6,23 @@
     align-items: center;
 }
 
-.container.lawyer--container {
+.lawyer--container {
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    gap: 2rem;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;  
+    text-align: center;
+    
 }
 
 .lawyer--container_info {
     background-color: var(--color-golden);
     font-family: var(--font-base);
     font-weight: 600;
-    width: 100%;
+    width: 60%;
 }
 
 .lawyer--details_img {
@@ -101,5 +103,8 @@
 @media screen and (max-width: 600px) {
     .btn-calendar {
         flex-wrap: wrap;
+    }
+    .lawyer--container_info {
+        width: 100%;
     }
 }

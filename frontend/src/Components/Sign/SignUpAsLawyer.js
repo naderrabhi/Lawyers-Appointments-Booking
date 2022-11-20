@@ -6,13 +6,13 @@ import background from "../../assets/image/gavel1.jpg";
 
 import "./sign.css";
 
-const specialty = [
-  "bankruptcy",
-  "business",
-  "civil Rights",
-  "criminal Law",
-  "immigration",
-  "family",
+const Specialty = [
+  "Droit international",
+  "Droit Commercial",
+  "Droit civil et familial",
+  "Droit des sociétés",
+  "Droit des investissements",
+  "Droit fiscal"
 ];
 
 const SignUpAsLawyer = ({ action }) => {
@@ -47,7 +47,7 @@ const SignUpAsLawyer = ({ action }) => {
       <div className="container sign--content ">
         <div className="row sign--row">
           <div className="sign--form_sign">
-            <h3 className="p__opensans">Sign up for Lawyer</h3>
+            <h3 className="p__opensans">S'inscrire Avocat</h3>
             <form method="post" onSubmit={handleSubmit}>
               <input
                 required
@@ -68,7 +68,7 @@ const SignUpAsLawyer = ({ action }) => {
                 name="specialty"
                 id="specialty"
               >
-                {specialty.map((s, i) => (
+                {Specialty.map((s, i) => (
                   <option key={i} value={s}>
                     {s}
                   </option>
@@ -88,7 +88,7 @@ const SignUpAsLawyer = ({ action }) => {
                 type="password"
                 className="form-control mb-3"
               />
-              <button className="p__opensans">Sign up</button>
+              <button className="p__opensans">S'inscrire</button>
             </form>
           </div>
         </div>

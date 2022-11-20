@@ -25,7 +25,7 @@ const Booking = ({ id, handleClose, day, hour }) => {
         <div className="row booking--row">
           <div className="col col-12 booking--col">
             <div className="booking--form">
-              <h3>Book an appoitnment</h3>
+              <h3>Obtenez votre rendez-vous</h3>
               <form onSubmit={handleSave}>
                 <input
                   onChange={(e) =>
@@ -47,7 +47,7 @@ const Booking = ({ id, handleClose, day, hour }) => {
                   rows="5"
                   className="form-control mb-3"
                 />
-                <button className="btn booking--btn">Booking</button>
+                <button className="btn booking--btn">Réservez</button>
               </form>
             </div>
           </div>

@@ -14,6 +14,7 @@ import "./lawyersdetails.css";
 
 const LawyersDetails = () => {
   const { id } = useParams();
+  console.log(id);
   const [value, onChange] = useState(new Date());
   const [day, setDay] = useState("");
   const [hour, setHour] = useState("");
@@ -70,8 +71,8 @@ const LawyersDetails = () => {
       {Loading ? (
         <LoadingSpinner />
       ) : (
-        <div className="container lawyer--container">
-          <div className="row lawyer--details_row lawyer--container_info">
+        <div className="lawyer--container">
+          <div className="lawyer--details_row lawyer--container_info">
             <img
               className="lawyer--details_img"
               src={profile.image}
@@ -82,18 +83,18 @@ const LawyersDetails = () => {
                 {profile.lawyerID && profile.lawyerID.firstName}{" "}
                 {profile.lawyerID && profile.lawyerID.lastName}
               </h1>
-              <p>Address : {profile.address}</p>
+              <p>Adresse : {profile.address}</p>
               <p>Bio : {profile.bio}</p>
               <p>Email : {profile.lawyerID && profile.lawyerID.email}</p>
               <p>
-                Speciality : {profile.lawyerID && profile.lawyerID.specialty}
+              Spécialité : {profile.lawyerID && profile.lawyerID.specialty}
               </p>
-              <p>Phone : {profile.phone}</p>
+              <p>Telephone : {profile.phone}</p>
             </div>
           </div>
-          <div className="row lawyer--details_row">
+          <div className="lawyer--details_row">
             <div className="calendar">
-              <p>Get your appointment</p>
+              <p>Obtenez votre rendez-vous</p>
               <Calendar
                 defaultActiveStartDate={value}
                 onChange={onChange}

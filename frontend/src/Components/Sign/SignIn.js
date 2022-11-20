@@ -28,7 +28,7 @@ const SignIn = () => {
       <div className="container sign--content">
         <div className="row sign--row">
           <div className="sign--form_sign">
-            <h3 className="p__opensans">Sign in</h3>
+            <h3 className="p__opensans">Connectez-vous</h3>
             <form onSubmit={handleSubmit}>
               <input
                 name="email"
@@ -44,14 +44,14 @@ const SignIn = () => {
                 type="password"
                 className="form-control mb-3"
               />
-              <button>Sign in</button>
+              <button>Connecter</button>
             </form>
             <div className="sign--in_signup">
               <Link className="p__opensans" to="/client/register">
-                Sign Up as Client
+              S'inscrire Client
               </Link>
               <Link className="p__opensans" to="/lawyer/register">
-                Sign Up as Lawyer
+              S'inscrire Avocat
               </Link>
             </div>
           </div>

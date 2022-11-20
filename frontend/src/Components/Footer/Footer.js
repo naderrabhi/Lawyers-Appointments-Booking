@@ -26,7 +26,7 @@ const Footer = () => {
             opacity: 0.94,
           }}
         >
-          <p>Let's get started. Call us now for a Consultation</p>
+          <p>Appelez-nous maintenant pour une consultation</p>
         </div>
       </div>
       <ContactForm />
@@ -34,17 +34,17 @@ const Footer = () => {
         <div className="footer--body_row">
           <div className="footer--body_col">
             <FaLocationArrow />
-            <h3 className="p__opensans">Our office</h3>
+            <h3 className="p__opensans">Notre bureau</h3>
             <p className="p__opensans">123 Street, Gafsa</p>
           </div>
           <div className="footer--body_col">
             <FaMailBulk />
-            <h3 className="p__opensans">Email Us</h3>
+            <h3 className="p__opensans">Email</h3>
             <p className="p__opensans">justice@gmail.com</p>
           </div>
           <div className="footer--body_col">
             <FaPhoneAlt />
-            <h3 className="p__opensans">Call Us</h3>
+            <h3 className="p__opensans">Appelez-nous</h3>
             <p className="p__opensans">(+000) 123 456 789</p>
           </div>
         </div>

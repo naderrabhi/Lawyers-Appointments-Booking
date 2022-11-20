@@ -17,9 +17,9 @@ const Violance = () => {
       <div className="row violance--content">
         <div className="violance--col col-12">
           <p className="p__opensans">
-            We are here to protect any kind of Violance
+          Nous sommes ici pour protéger tout type de violence
           </p>
-          <Link to="/contact">Contact Us Now</Link>
+          <Link to="/contact">Contactez-nous</Link>
         </div>
       </div>
     </div>

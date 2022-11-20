@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProfiles } from "../../JS/actions/profile";
 import LawyerCard from "../LawyerCard/LawyerCard";
@@ -7,28 +8,29 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./lawyerslist.css";
 
 const Specialty = [
-  "bankruptcy",
-  "business",
-  "civil Rights",
-  "criminal Law",
-  "immigration",
-  "family",
+  "Droit international",
+  "Droit Commercial",
+  "Droit civil et familial",
+  "Droit des sociétés",
+  "Droit des investissements",
+  "Droit fiscal"
 ];
 
 const LawyersList = () => {
   const [input, setInput] = useState("");
+  const [inputAd, setInputAd] = useState("");
   const Profiles = useSelector((state) => state.profile.Profiles);
   const Loading = useSelector((state) => state.profile.loading);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProfiles("all", ""));
+    dispatch(getAllProfiles("tout", "",""));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSpecialty = (e) => {
-    dispatch(getAllProfiles(e.target.value, ""));
+    dispatch(getAllProfiles(e.target.value, "",""));
   };
   return (
     <div className="lawyer--page">
@@ -40,7 +42,7 @@ const LawyersList = () => {
             name="select-lawyer"
             id="select-lawyer"
           >
-            <option defaultValue>all</option>
+            <option defaultValue>tout</option>
             {Specialty.map((s, i) => (
               <option key={i} value={s}>
                 {s}
@@ -48,9 +50,18 @@ const LawyersList = () => {
             ))}
           </select>
           <div className="form--search">
+          <input
+              value={inputAd}
+              placeholder="par adresse..."
+              onChange={(e) => {
+                setInputAd(e.target.value);
+              }}
+              type="text"
+              className="form-control form-control-lg"
+            />
             <input
               value={input}
-              placeholder="Search by name..."
+              placeholder="par nom..."
               onChange={(e) => {
                 setInput(e.target.value);
               }}
@@ -59,12 +70,13 @@ const LawyersList = () => {
             />
             <button
               onClick={() => {
-                dispatch(getAllProfiles("all", input));
+                dispatch(getAllProfiles("all", input,inputAd));
                 setInput("");
+                setInputAd("");
               }}
               className="btn btn-search btn-sm btn-primary"
             >
-              Search
+              <FaSearch />
             </button>
           </div>
         </form>

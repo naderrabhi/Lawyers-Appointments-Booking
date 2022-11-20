@@ -36,7 +36,7 @@ const SignUpAsClient = ({ action }) => {
       <div className="container sign--content">
         <div className="row sign--row">
           <div className="sign--form_sign">
-            <h3>Sign up for Client</h3>
+            <h3>S'inscrire Client</h3>
             <form method="post" onSubmit={handleSubmit}>
               <input
                 required
@@ -66,7 +66,7 @@ const SignUpAsClient = ({ action }) => {
                 type="password"
                 className="form-control mb-3"
               />
-              <button>Sign up</button>
+              <button>S'inscrire</button>
             </form>
           </div>
         </div>

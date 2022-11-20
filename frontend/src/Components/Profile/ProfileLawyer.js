@@ -22,7 +22,7 @@ const ProfileLawyer = ({ profile }) => {
               "dafault image"
             }
           />
-          <button onClick={handleShow}>Edit Profile</button>
+          <button onClick={handleShow}>Editer le profil</button>
           <Modal show={show} onHide={handleClose}>
             <LawyerEdit profile={profile} handleClose={handleClose} />
           </Modal>
@@ -30,15 +30,15 @@ const ProfileLawyer = ({ profile }) => {
         <div className="profile--lawyer_info" id="myTabContent">
           <div className="profile-head">
             <h5>
-              <span>Full name : </span>
+              <span>Nom et prénom : </span>
               {profile.lawyerID && profile.lawyerID.firstName}{" "}
               {profile.lawyerID && profile.lawyerID.firstName}
             </h5>
             <h6>
-              <span>Address : </span> {profile && profile.address}
+              <span>Adresse : </span> {profile && profile.address}
             </h6>
             <h6>
-              <span>Specialty : </span>{" "}
+              <span>Spécialité : </span>{" "}
               {profile.lawyerID && profile.lawyerID.specialty}
             </h6>
             <h6>

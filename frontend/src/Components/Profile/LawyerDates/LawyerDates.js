@@ -25,13 +25,13 @@ const LawyerDates = () => {
   return (
     <>
       {Appointments.length === 0 ? (
-        <h1 className="no--client">No Client to Show</h1>
+        <h1 className="no--client">Aucun client à afficher</h1>
       ) : (
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Day/Hour</th>
+              <th>Nom</th>
+              <th>Jour/Heure</th>
               <th>Action</th>
             </tr>
           </thead>

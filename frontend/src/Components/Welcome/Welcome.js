@@ -17,10 +17,10 @@ const Welcome = () => {
       <div className="row welcome--content">
         <div className="welcome--col col-12">
           <p className="p__opensans">
-            Best Law Agency, Our Fighting Is For Your Justice
+          Meilleure agence d'avocats, notre combat est pour votre justice
           </p>
           <Link to={localStorage.getItem("token") ? "/lawyers" : "/login"}>
-            Get an appointment
+          Obtenir un rendez-vous
           </Link>
         </div>
       </div>

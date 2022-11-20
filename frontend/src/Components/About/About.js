@@ -12,8 +12,8 @@ const About = () => {
             <img src={about} alt="" />
           </div>
           <div className="col col-md-12 col-lg-6 col-sm-12 about--col about--col_content">
-            <h3>About us</h3>
-            <p>We Provide Highly Reliable & Effective Legal Solutions</p>
+            <h3>À propos de nous</h3>
+            <p>Nous fournissons des solutions juridiques très fiables et efficaces</p>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
               non, reprehenderit accusantium voluptatem dicta nobis similique

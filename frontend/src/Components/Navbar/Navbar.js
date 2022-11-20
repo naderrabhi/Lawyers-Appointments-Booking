@@ -16,57 +16,57 @@ const Navbar = () => {
   return (
     <nav className="app--header">
       <div className="header--logo">
-        <Link to="/">Lawyer</Link>
+        <Link to="/">Avocat</Link>
       </div>
       <ul className="header--links">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Accueil</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">À Propos</Link>
         </li>
         {localStorage.getItem("token") ? (
           <li>
-            <Link to="/lawyers">Lawyers</Link>
+            <Link to="/lawyers">Nos Avocats</Link>
           </li>
         ) : null}
         <li>
-          <Link to="/practice">Practice Areas</Link>
+          <Link to="/practice">Nos Compétences</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">Contacter Nous</Link>
         </li>
       </ul>
       <div className="header--sign">
         {user && user.role === "admin" ? (
           <li>
-            <Link to="/dashboard">Dashboard</Link> |{" "}
+            <Link to="/dashboard">tableau de bord</Link> |{" "}
             <Link onClick={() => dispatch(logOut())} to="/login">
-              Log out
+            Se déconnecter
             </Link>
           </li>
         ) : user.role === "lawyer" || user.role === "client" ? (
           <li>
-            <Link to="/profile">Profile</Link> |{" "}
+            <Link to="/profile">Profil</Link> |{" "}
             <Link onClick={() => dispatch(logOut())} to="/login">
-              Log out
+            Se déconnecter
             </Link>
           </li>
         ) : (
           <li>
-            <Link to="/login">Sign in</Link> |{" "}
+            <Link to="/login">Connexion</Link> |{" "}
             <div
               onMouseEnter={() => setToggle(true)}
               onMouseLeave={() => setToggle(false)}
               className="dropdown"
             >
-              <Link to="">Sign up</Link>
+              <Link to="">Inscrivez-vous</Link>
               <div
                 className={
                   toggle ? "dropdown--content_show" : "dropdown--content_hide"
                 }
               >
-                <Link to="/lawyer/register">Lawyer</Link>
+                <Link to="/lawyer/register">Avocat</Link>
                 <Link to="/client/register">Client</Link>
               </div>
             </div>
@@ -93,14 +93,14 @@ const Navbar = () => {
                   setToggleMenu(false);
                 }}
               >
-                <Link to="/">Home</Link>
+                <Link to="/">Accueil</Link>
               </li>
               <li
                 onClick={() => {
                   setToggleMenu(false);
                 }}
               >
-                <Link to="/about">About</Link>
+                <Link to="/about">À Propos</Link>
               </li>
               {localStorage.getItem("token") ? (
                 <li
@@ -108,7 +108,7 @@ const Navbar = () => {
                     setToggleMenu(false);
                   }}
                 >
-                  <Link to="/lawyers">Lawyers</Link>
+                  <Link to="/lawyers">Nos Avocats</Link>
                 </li>
               ) : null}
               <li
@@ -116,33 +116,33 @@ const Navbar = () => {
                   setToggleMenu(false);
                 }}
               >
-                <Link to="/practice">Practice Areas</Link>
+                <Link to="/practice">Nos Compétences</Link>
               </li>
               <li
                 onClick={() => {
                   setToggleMenu(false);
                 }}
               >
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">Contacter Nous</Link>
               </li>
               {user && user.role === "admin" ? (
                 <li>
-                  <Link to="/dashboard">Dashboard</Link> |{" "}
-                  <Link onClick={() => dispatch(logOut())} to="/login">
-                    Log out
+                  <Link onClick={() =>{ setToggleMenu(false)}} to="/dashboard">tableau de bord</Link> |{" "}
+                  <Link onClick={() =>{ dispatch(logOut());setToggleMenu(false)}} to="/login">
+                  Se déconnecter
                   </Link>
                 </li>
               ) : user.role === "lawyer" || user.role === "client" ? (
                 <li>
-                  <Link to="/profile">Profile</Link> |{" "}
-                  <Link onClick={() => dispatch(logOut())} to="/login">
-                    Log out
+                  <Link onClick={() =>{ setToggleMenu(false)}} to="/profile" >Profil</Link> |{" "}
+                  <Link onClick={() =>{ dispatch(logOut());setToggleMenu(false)}} to="/login">
+                  Se déconnecter
                   </Link>
                 </li>
               ) : (
                 <li>
                   <Link onClick={() => setToggleMenu(false)} to="/login">
-                    Sign in
+                  Connexion
                   </Link>{" "}
                   |{" "}
                   <div
@@ -150,7 +150,7 @@ const Navbar = () => {
                     className="dropdown"
                   >
                     <Link onClick={() => setToggle(!toggle)} to="">
-                      Sign up
+                    Inscrivez-vous
                     </Link>
                     <div
                       className={
@@ -163,7 +163,7 @@ const Navbar = () => {
                         onClick={() => setToggleMenu(false)}
                         to="/lawyer/register"
                       >
-                        Lawyer
+                        Avocat
                       </Link>
                       <Link
                         onClick={() => setToggleMenu(false)}

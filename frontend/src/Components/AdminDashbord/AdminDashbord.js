@@ -35,9 +35,9 @@ const AdminDashbord = () => {
       <div className="dashboard--header">
         <form onSubmit={handleSubmit}>
           <div className="dahsboard--users">
-            <button onClick={() => setRole("all")}>All</button>
+            <button onClick={() => setRole("all")}>Tout</button>
             <button onClick={() => setRole("client")}>Clients</button>
-            <button onClick={() => setRole("lawyer")}>Lawyers</button>
+            <button onClick={() => setRole("lawyer")}>Avocats</button>
           </div>
           <input
             value={name}
@@ -52,9 +52,9 @@ const AdminDashbord = () => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">name</th>
-            <th scope="col">role</th>
-            <th scope="col">specialty</th>
+            <th scope="col">Nom</th>
+            <th scope="col">rôle</th>
+            <th scope="col">spécialité</th>
             <th scope="col">action</th>
           </tr>
         </thead>
@@ -75,7 +75,7 @@ const AdminDashbord = () => {
                   }}
                   className="btn mb-1 btn-warning btn-sm"
                 >
-                  detail
+                  détail
                 </button>
                 <Modal show={show} onHide={handleClose}>
                   <ModalDetails User={User} handleClose={handleClose} />
@@ -88,7 +88,7 @@ const AdminDashbord = () => {
                   }}
                   className="btn mb-1 btn-danger btn-sm"
                 >
-                  delete
+                  effacer
                 </button>
               </td>
             </tr>

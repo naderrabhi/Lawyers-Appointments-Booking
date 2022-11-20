@@ -22,12 +22,12 @@ export const postProfile = (profile) => async (dispatch) => {
 };
 
 
-export const getAllProfiles = (specialty,name) => async (dispatch) => {
+export const getAllProfiles = (specialty,name,address) => async (dispatch) => {
   const token = localStorage.getItem("token");
   dispatch({type : GET_PROFILES_LOADING})
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/v1/profiles/?specialty=${specialty}&name=${name}`,
+      `http://localhost:5000/api/v1/profiles/?specialty=${specialty}&name=${name}&address=${address}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -49,19 +49,20 @@ const getMyProfile = async (req, res) => {
 const getAllProfiles = async (req, res) => {
   const specialty = req.query.specialty;
   const name = req.query.name;
+  const address = req.query.address
   try {
-    if (specialty == "all" && !name) {
+    if (specialty == "tout" && (!name && !address)) {
       const profiles = await Profile.find({}).populate("lawyerID", "-password");
       return res.send(profiles);
     }
-    if (specialty == "all" && name) {
-      const profiles = await Profile.find({ name: { $regex: name } }).populate(
+    if (specialty == "tout" && (name || address)) {
+      const profiles = await Profile.find({ name: { $regex: name },address : {$regex : address} }).populate(
         "lawyerID",
         "-password"
       );
       return res.send(profiles);
     }
-    if (specialty !== "all") {
+    if (specialty !== "tout") {
       const profiles = await Profile.find({ specialty: specialty }).populate(
         "lawyerID",
         "-password"

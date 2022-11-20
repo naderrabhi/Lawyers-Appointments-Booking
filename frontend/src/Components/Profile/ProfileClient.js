@@ -28,16 +28,16 @@ const ProfileClient = ({ user }) => {
       <div className="container user--profile_container">
         <div className="row user--profile_row">
           <div className="user--profile_info">
-            <p>First Name : {user.firstName}</p>
-            <p>First Name : {user.lastName}</p>
+            <p>Prénom : {user.firstName}</p>
+            <p>Nom : {user.lastName}</p>
             <p>Email : {user.email}</p>
             <div className="user--profile_app">
               {!Appointments.length === 0 ? (
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Day/Hour</th>
+                      <th>Nom</th>
+                      <th>Jour/Heure</th>
                       <th>Action</th>
                     </tr>
                   </thead>
