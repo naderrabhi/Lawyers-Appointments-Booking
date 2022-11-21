@@ -14,8 +14,8 @@ const Welcome = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="row welcome--content">
-        <div className="welcome--col col-12">
+      <div className="welcome--content">
+        <div className="welcome--col">
           <p className="p__opensans">
           Meilleure agence d'avocats, notre combat est pour votre justice
           </p>

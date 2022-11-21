@@ -101,7 +101,7 @@ function App() {
           path="/lawyers/:id"
           element={
             <Layout>
-              <LawyersDetails />
+              <LawyersDetails user={user} />
             </Layout>
           }
         />

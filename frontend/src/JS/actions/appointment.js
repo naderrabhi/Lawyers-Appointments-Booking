@@ -74,7 +74,6 @@ export const getOneAppointment = (id) => async (dispatch) => {
 };
 
 export const getOneAppointmentOfLawyer = (id,day) => async (dispatch) => {
-  console.log('id from action' , id)
   const token = localStorage.getItem("token");
   dispatch({ type: GET_LAWYER_APPOINTMENT_LOADING });
   try {

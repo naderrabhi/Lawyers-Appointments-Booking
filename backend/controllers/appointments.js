@@ -72,7 +72,7 @@ const getAllAppointmentOfOneLawyer = async (req, res) => {
   const id = req.params.id;
   const day = req.query.day;
   try {
-    const appointments = await Appointment.find({ lawyerID: id, day: day });
+    const appointments = await Appointment.find({ lawyerID: id, day: {$regex : day} });
     if (!appointments)
       return res.status(404).send({ msg: "No appointments found" });
     res.send(appointments);

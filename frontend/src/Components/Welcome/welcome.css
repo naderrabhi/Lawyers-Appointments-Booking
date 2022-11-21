@@ -21,7 +21,7 @@
     justify-content: center;
     max-height: 100%;
     line-height: 4rem;
-    color: #F6F7EB;
+    color: var(--color-white);
 }
 
 .welcome--col p {

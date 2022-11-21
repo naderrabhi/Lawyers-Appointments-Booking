@@ -70,7 +70,7 @@ const LawyersList = () => {
             />
             <button
               onClick={() => {
-                dispatch(getAllProfiles("all", input,inputAd));
+                dispatch(getAllProfiles("tout", input,inputAd));
                 setInput("");
                 setInputAd("");
               }}

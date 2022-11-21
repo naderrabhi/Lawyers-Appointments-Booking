@@ -14,8 +14,8 @@ const Violance = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="row violance--content">
-        <div className="violance--col col-12">
+      <div className="violance--content">
+        <div className="violance--col">
           <p className="p__opensans">
           Nous sommes ici pour protéger tout type de violence
           </p>

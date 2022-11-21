@@ -96,11 +96,11 @@ const LawyersDetails = () => {
             <div className="calendar">
               <p>Obtenez votre rendez-vous</p>
               <Calendar
-                defaultActiveStartDate={value}
+                value={value}
                 onChange={onChange}
                 onClickDay={handleChange}
               />
-              {(user.role === "client" ||
+              {((user.role === "client" || user.role === "admin") ||
                 user._id === profile.lawyerID._id) && (
                 <div className="btn-calendar">
                   {appointments.length > 0
