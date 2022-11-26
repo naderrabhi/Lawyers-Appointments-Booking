@@ -20,10 +20,10 @@ const LawyersDetails = () => {
   const profile = useSelector((state) => state.profile.Profile);
   const posts = useSelector((state) => state.post.Posts);
   const Loading = useSelector((state) => state.profile.loading);
-  
-  const [comment,setComment] = useState("");
+
+  const [comment, setComment] = useState("");
   const [value, onChange] = useState(new Date());
-  
+
   const [day, setDay] = useState("");
   const [hour, setHour] = useState("");
   let date = new Date();
@@ -49,15 +49,13 @@ const LawyersDetails = () => {
     dispatch(
       getOneAppointmentOfLawyer(profile.lawyerID && profile.lawyerID._id, utc)
     );
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[show]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [show]);
 
   useEffect(() => {
-    dispatch(getPost(profile.lawyerID && profile.lawyerID._id))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [comment])
-  
-
+    dispatch(getPost(profile.lawyerID && profile.lawyerID._id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [comment]);
 
   function getDifference(array1, array2) {
     return array1.filter((object1) => {
@@ -159,22 +157,56 @@ const LawyersDetails = () => {
             <h1>Laisser un commentaire</h1>
             <div className="lawyer--details_comment">
               <img src={(user && user.image) || "/defaultSrc.png"} alt="" />
-              <input value={comment} onChange={e => setComment(e.target.value)} type="text" placeholder="Laisser un commentaire" />
-              <button onClick={()=>{dispatch(addPost({userID : user._id,lawyerID : profile.lawyerID._id,comment}));setComment("")}}>commenter</button>
+              <input
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                type="text"
+                placeholder="Laisser un commentaire"
+              />
+              <button
+                onClick={() => {
+                  dispatch(
+                    addPost({
+                      userID: user._id,
+                      lawyerID: profile.lawyerID._id,
+                      comment,
+                    })
+                  );
+                  setComment("");
+                }}
+              >
+                commenter
+              </button>
             </div>
           </div>
-          {posts.length > 0 ? posts.map(post => <div className="lawyer--details_commentget">
-            <img src={(user && user.image) || "/defaultSrc.png"} alt="" />
-            <div className="lawyer--details_commentget-info">
-              <h3>{post.name}</h3>
-              <h6>{post.date.slice(0,10) + " à " + post.date.slice(11,16)}</h6>
-              <p>{post.comment}</p>
-              <div className="commentget--info_btn">
-                {user && user._id === post.userID ? <><button>Editer</button> <button>Supprimer</button></> : null}
-                
+          {posts ? (
+            posts.map((post) => (
+              <div className="lawyer--details_commentget">
+                <img src={(user && user.image) || "/defaultSrc.png"} alt="" />
+                <div className="lawyer--details_commentget-info">
+                  <h3>{post.name}</h3>
+                  <h6>
+                    {post.date.slice(0, 10) + " à " + post.date.slice(11, 16)}
+                  </h6>
+                  <p>{post.comment}</p>
+                  <div className="commentget--info_btn">
+                    {user && user._id === post.userID ? (
+                      <>
+                        <button>Editer</button>
+                      </>
+                    ) : null}
+                    {(user && user._id === post.userID) ||
+                    (profile.lawyerID && profile.lawyerID._id === user._id) ||
+                    user.role === "admin" ? (
+                      <button>Supprimer</button>
+                    ) : null}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>)  : <p className="noComment">No commentaire to show</p>}
+            ))
+          ) : (
+            <p className="noComment">No commentaire to show</p>
+          )}
         </>
       )}
     </div>
