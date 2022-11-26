@@ -5,4 +5,5 @@ import {profile} from './profile'
 import {admin} from './admin'
 import {user} from './user'
 import {alert} from './alert'
-export const reducers = combineReducers({auth,admin,appointment,profile,user,alert });
+import {post} from './post'
+export const reducers = combineReducers({auth,admin,appointment,profile,user,alert,post });

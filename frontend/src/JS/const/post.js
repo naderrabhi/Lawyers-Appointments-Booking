@@ -1,0 +1,7 @@
+export const POST_SUCCESS = "POST_SUCCESS" 
+export const POST_FAIL = "POST_FAIL" 
+export const POST_LOADING = "POST_LOADING"
+
+export const GET_POST_SUCCESS = "GET_POST_SUCCESS" 
+export const GET_POST_FAIL = "GET_POST_FAIL" 
+export const GET_POST_LOADING = "GET_POST_LOADING"

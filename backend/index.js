@@ -7,6 +7,7 @@ const adminRouter = require('./routes/admin')
 const usersRouter = require('./routes/users')
 const profileRouter = require('./routes/profiles')
 const appointmentRouter = require('./routes/appointments')
+const postRouter = require('./routes/post')
 
 const app = express();
 require('dotenv').config()
@@ -20,6 +21,7 @@ app.use('/api/v1/admin',adminRouter)
 app.use('/api/v1/users',usersRouter)
 app.use('/api/v1/profiles',profileRouter)
 app.use('/api/v1/booking',appointmentRouter)
+app.use('/api/v1/post',postRouter)
 
 
 const port = process.env.PORT || 5000

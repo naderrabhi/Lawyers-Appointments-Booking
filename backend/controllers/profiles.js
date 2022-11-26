@@ -19,7 +19,7 @@ const createProfile = async (req, res) => {
       ...req.body,
       lawyerID: req.user._id,
     });
-    if (url) {
+    if (url && req.file) {
       newProfile.image = `${url}/${req.file.path}`;
     }
     newProfile.specialty = req.user.specialty;
