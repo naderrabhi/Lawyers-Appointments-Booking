@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  passwordConfirm: {
+    type: String,
+  },
   role: {
     type: String,
     default: "client",

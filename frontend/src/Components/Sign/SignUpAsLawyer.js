@@ -27,6 +27,7 @@ const SignUpAsLawyer = ({ action }) => {
         {
           email: data.get("email"),
           password: data.get("password"),
+          passwordConfirm: data.get("passwordConfirm"),
           specialty: data.get("specialty"),
           firstName: data.get("firstName"),
           lastName: data.get("lastName"),
@@ -85,6 +86,13 @@ const SignUpAsLawyer = ({ action }) => {
                 required
                 name="password"
                 placeholder="Password"
+                type="password"
+                className="form-control mb-3"
+              />
+              <input
+                required
+                name="passwordConfirm"
+                placeholder="Confirm your password"
                 type="password"
                 className="form-control mb-3"
               />

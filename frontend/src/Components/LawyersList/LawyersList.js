@@ -51,6 +51,7 @@ const LawyersList = () => {
           </select>
           <div className="form--search">
           <input
+          style={{borderTopRightRadius: 0,borderBottomRightRadius: 0,border : 'white'}}
               value={inputAd}
               placeholder="par adresse..."
               onChange={(e) => {
@@ -60,6 +61,7 @@ const LawyersList = () => {
               className="form-control form-control-lg"
             />
             <input
+            style={{borderRadius: 0,borderTopLeftRadius: 0,border : 'white'}}
               value={input}
               placeholder="par nom..."
               onChange={(e) => {

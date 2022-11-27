@@ -8,7 +8,7 @@ import "./lawyeredit.css";
 
 const LawyerEdit = ({ profile, handleClose }) => {
   const [image, setImage] = useState(profile.image);
-  const [address, setAddress] = useState(profile.adress);
+  const [address, setAddress] = useState(profile.address);
   const [bio, setBio] = useState(profile.bio);
   const [phone, setPhone] = useState(profile.phone);
   const dispatch = useDispatch();

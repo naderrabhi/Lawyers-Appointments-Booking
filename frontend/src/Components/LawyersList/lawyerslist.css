@@ -1,5 +1,6 @@
 .lawyer--page {
     min-height: 100vh;
+    margin-top: 6vh;
 }
 
 .filter--lawyers {
@@ -17,6 +18,10 @@
     flex-direction: row;
 }
 
+.form--search input:focus {
+    box-shadow: none;
+}
+
 button.btn.btn-search.btn-sm.btn-primary {
     background: var(--color-golden);
     color: var(--color-black);
@@ -25,6 +30,8 @@ button.btn.btn-search.btn-sm.btn-primary {
     font-family: var(--font-base);
     font-weight: bold;
     width: 3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 button.btn.btn-search.btn-sm.btn-primary svg {

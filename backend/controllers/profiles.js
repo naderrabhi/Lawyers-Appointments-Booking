@@ -2,28 +2,29 @@ const Profile = require("../models/profile");
 
 const createProfile = async (req, res) => {
   const url = `${req.protocol}://${req.get("host")}`;
-  Object.keys(req.body).forEach((key) => {
-    if (req.body[key] === "") {
-      delete req.body[key];
-    }
-  });
+
+  const obj = {}
+  if (req.body.fileName) {obj.fileName = req.body.fileName}
+  if (req.body.address) {obj.address = req.body.address}
+  if (req.body.bio) {obj.bio = req.body.bio}
+  if (req.body.phone) {obj.phone = req.body.phone}
+  if (req.file) {obj.image = `${url}/${req.file.path}`}
+  
   try {
     const existProfile = await Profile.findOne({ lawyerID: req.user._id });
 
     if (existProfile) {
-      await Profile.updateOne({ lawyerID: req.user._id }, { ...req.body });
+      await Profile.updateOne({ lawyerID: req.user._id }, { ...obj });
       const updatedProfile = await Profile.find({ lawyerID: req.user._id });
       return res.send({ updatedProfile });
     }
     const newProfile = await new Profile({
-      ...req.body,
+      ...obj,
       lawyerID: req.user._id,
+      specialty : req.user.specialty,
+      name : req.user.firstName + " " + req.user.lastName
     });
-    if (url && req.file) {
-      newProfile.image = `${url}/${req.file.path}`;
-    }
-    newProfile.specialty = req.user.specialty;
-    newProfile.name = req.user.firstName + " " + req.user.lastName;
+    
     await newProfile.save();
     res.send(newProfile);
   } catch (error) {

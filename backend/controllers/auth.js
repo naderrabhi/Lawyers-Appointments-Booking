@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 
 const registerUserAsLawyer = async (req, res) => {
-  const { email, password, role } = req.body;
+  const { email, password, passwordConfirm, role } = req.body;
   try {
     const existUser = await User.findOne({ email: email });
 
@@ -11,9 +11,12 @@ const registerUserAsLawyer = async (req, res) => {
       return res.status(400).send({ msg: "Lawyer already exists" });
     if (role && role == "admin")
       return res.status(400).send({ msg: "you can not register as admin" });
+    if (password !== passwordConfirm)
+      return res.status(400).send({ msg: "password not matched" });
     const newLawyer = await new User({ ...req.body, role: "lawyer" });
     const hashedPassword = await bcrypt.hash(password, 10);
     newLawyer.password = hashedPassword;
+    newLawyer.passwordConfirm = "";
     await newLawyer.save();
     res.send({
       msg: "Lawyer registered successfully, Please Sign in to confirm your Account",
@@ -26,7 +29,7 @@ const registerUserAsLawyer = async (req, res) => {
 };
 
 const registerUserAsClient = async (req, res) => {
-  const { email, password, role } = req.body;
+  const { email, password, passwordConfirm, role } = req.body;
   try {
     const existUser = await User.findOne({ email: email });
 
@@ -34,9 +37,13 @@ const registerUserAsClient = async (req, res) => {
       return res.status(400).send({ msg: "Client already exists" });
     if (role && role == "admin")
       return res.status(400).send({ msg: "you can not register as admin" });
+    if (password !== passwordConfirm)
+      return res.status(400).send({ msg: "password not matched" });
+
     const newClient = await new User({ ...req.body });
     const hashedPassword = await bcrypt.hash(password, 10);
     newClient.password = hashedPassword;
+    newClient.passwordConfirm = "";
     await newClient.save();
     res.send({
       msg: "Client registered successfully, Please Sign in to confirm your Account",

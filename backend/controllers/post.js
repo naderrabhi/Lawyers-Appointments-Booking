@@ -49,12 +49,6 @@ const editPost = async (req, res) => {
     );
     const postAfterEdit = await Post.findById(req.params.id)
     res.send({ msg: "post updated successfully", postAfterEdit });
-    // if (postEdited.modifiedCount) {
-    //   const postAfterUpdate = await Post.findOne({ _id: req.user._id });
-    //   return res.send({ msg: "post updated successfully", postAfterUpdate });
-    // } else {
-    //   return res.status(400).send({ msg: "post already updated" });
-    // }
   } catch (error) {}
 };
 module.exports = { createPost, getPost, deletePost, editPost };

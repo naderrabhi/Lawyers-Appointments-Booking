@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import LawyerDates from "./LawyerDates/LawyerDates";
 import Modal from "react-bootstrap/Modal";
 import LawyerEdit from "../LawyerEdit/LawyerEdit";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { useSelector } from "react-redux";
 
 import "./profilelawyer.css";
 
 const ProfileLawyer = ({ profile }) => {
+  
   const [show, setShow] = useState(false);
-
+  const Loading = useSelector((state) => state.profile.loading);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
     <div className="profile--lawyer section__padding">
-      <div className="profile--lawyer_container">
+      {Loading ? <LoadingSpinner /> : <div className="profile--lawyer_container">
         <div className="profile--lawyer_img">
           <img
-            src={(profile && profile.image) || "/defaultSrc.png"}
+            src={(profile && profile.image) || './nader.png'}
             alt={
               (profile.lawyerID && profile.lawyerID.firstName) ||
               "dafault image"
@@ -47,7 +50,8 @@ const ProfileLawyer = ({ profile }) => {
           </div>
           <LawyerDates />
         </div>
-      </div>
+      </div>}
+      
     </div>
   );
 };
