@@ -11,31 +11,32 @@ import "react-calendar/dist/Calendar.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 import "./lawyersdetails.css";
-import { addPost, getPost } from "../../JS/actions/post";
+import { addPost, delPost, editPost, getPost } from "../../JS/actions/post";
 
 const LawyersDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   const user = useSelector((state) => state.auth.User);
   const profile = useSelector((state) => state.profile.Profile);
   const posts = useSelector((state) => state.post.Posts);
   const Loading = useSelector((state) => state.profile.loading);
-
-  const [comment, setComment] = useState("");
-  const [value, onChange] = useState(new Date());
-
-  const [day, setDay] = useState("");
-  const [hour, setHour] = useState("");
-  let date = new Date();
-  let x = date.getDate();
-  const utc = date.toJSON().slice(0, 8).replace(/-/g, "-") + x;
-  // const [today, setToday] = useState(utc);
-  const [show, setShow] = useState(false);
   const appointments = useSelector(
     (state) => state.appointment.lawyerAppointment
   );
 
-  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(false)
+  const [comment, setComment] = useState("");
+  const [value, onChange] = useState(new Date());
+  const [day, setDay] = useState("");
+  const [hour, setHour] = useState("");
+  const [postID, setPostID] = useState("")
+
+  let date = new Date();
+  let x = date.getDate();
+  const utc = date.toJSON().slice(0, 8).replace(/-/g, "-") + x;
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -46,14 +47,18 @@ const LawyersDetails = () => {
   }, [show]);
 
   useEffect(() => {
+    if (profile && profile.lawyerID) {
     dispatch(
-      getOneAppointmentOfLawyer(profile.lawyerID && profile.lawyerID._id, utc)
+      getOneAppointmentOfLawyer(profile.lawyerID._id, utc)
     );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show]);
 
   useEffect(() => {
-    dispatch(getPost(profile.lawyerID && profile.lawyerID._id));
+    if (profile && profile.lawyerID) {
+    dispatch(getPost(profile.lawyerID._id));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [comment]);
 
@@ -79,6 +84,13 @@ const LawyersDetails = () => {
     setHour(hour);
     handleShow();
   };
+
+  const handleEdit = (id) => {
+    setPostID(id)
+    setToggleEdit(!toggleEdit)
+    if (toggleEdit) {dispatch(editPost(id,comment,profile.lawyerID._id))}
+    setComment("")
+  }
 
   return (
     <div className="lawyer--details section__padding">
@@ -188,17 +200,22 @@ const LawyersDetails = () => {
                   <h6>
                     {post.date.slice(0, 10) + " à " + post.date.slice(11, 16)}
                   </h6>
-                  <p>{post.comment}</p>
+                  {toggleEdit && postID === post._id ? <input
+                  onChange={(e) => setComment(e.target.value)}
+                  Value={post.comment}
+                type="text"
+                placeholder="Laisser un commentaire"
+              /> : <p>{post.comment}</p>}
                   <div className="commentget--info_btn">
                     {user && user._id === post.userID ? (
                       <>
-                        <button>Editer</button>
+                        <button onClick={()=>handleEdit(post._id)}>{toggleEdit ? "Commenter" : "Editer"}</button>
                       </>
                     ) : null}
                     {(user && user._id === post.userID) ||
                     (profile.lawyerID && profile.lawyerID._id === user._id) ||
                     user.role === "admin" ? (
-                      <button>Supprimer</button>
+                      <button onClick={()=>{dispatch(delPost(post._id,profile.lawyerID._id))}}>Supprimer</button>
                     ) : null}
                   </div>
                 </div>
