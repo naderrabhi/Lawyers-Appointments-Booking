@@ -56,7 +56,7 @@ const ContactForm = () => {
   return (
     <div className="app___formcontrol">
       <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-        <h1>Contact Us</h1>
+        <h1>Contactez-nous</h1>
         <div className="form__input mb-3">
           <input
             type="text"
@@ -69,7 +69,7 @@ const ContactForm = () => {
               },
             })}
             className="form-control formInput"
-            placeholder="Name"
+            placeholder="Please enter your name"
           ></input>
           {errors.name && (
             <span className="errorMessage">{errors.name.message}</span>
@@ -85,7 +85,7 @@ const ContactForm = () => {
                 /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             })}
             className="form-control formInput"
-            placeholder="Email address"
+            placeholder="Please enter your email"
           ></input>
           {errors.email && (
             <span className="errorMessage">
@@ -105,7 +105,7 @@ const ContactForm = () => {
               },
             })}
             className="form-control formInput"
-            placeholder="Subject"
+            placeholder="Please enter a subject"
           ></input>
           {errors.subject && (
             <span className="errorMessage">{errors.subject.message}</span>
@@ -119,14 +119,14 @@ const ContactForm = () => {
               required: true,
             })}
             className="form-control formInput"
-            placeholder="Message"
+            placeholder="Please enter a message"
           ></textarea>
           {errors.message && (
             <span className="errorMessage">Please enter a message</span>
           )}
         </div>
         <button className="submit-btn" type="submit">
-          Send Message
+          Envoyer
         </button>
       </form>
     </div>

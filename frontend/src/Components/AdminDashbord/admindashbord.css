@@ -34,6 +34,7 @@
     font-size: 1.2rem;
     font-family: var(--font-base);
     font-weight: bold;
+    border: none;
 }
 
 .dahsboard--users {
@@ -47,9 +48,23 @@
     margin-bottom: 1rem;
 }
 
-.dashboard--action button {
-    margin-right: 0.3rem;
+.dashboard--action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
+
+.dashboard--action button {
+    border: none;
+    background-color: transparent;
+    color: var(--color-golden);
+}
+
+.dashboard--action svg {
+    font-size: 1.5rem;
+}
+
 
 @media screen and (max-width: 400px) {
     .dashboard--header {

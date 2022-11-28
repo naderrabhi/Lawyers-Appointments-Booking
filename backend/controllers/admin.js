@@ -1,4 +1,6 @@
+const Appointment = require("../models/appointments");
 const User = require("../models/users");
+const Post = require("../models/post");
 
 const getAllUsers = async (req, res) => {
   const role = req.query.role;
@@ -48,4 +50,33 @@ const deleteUsers = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, deleteUsers, getOneUsers };
+const deleteAppointmentByAdmin = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedAppointment = await Appointment.deleteOne({ lawyerID : id });
+    if (deletedAppointment.deletedCount) {
+      return res.send({ msg: "appointment deleted successfully" });
+    } else {
+      return res.status(400).send({ msg: "appointment already deleted" });
+    }
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+    console.log(error);
+  }
+};
+
+const deletePostByAdmin = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedPost = await Post.deleteOne({ lawyerID : id });
+    if (deletedPost.deletedCount) {
+      return res.send({ msg: "post deleted successfully" });
+    } else {
+      return res.status(400).send({ msg: "post already deleted" });
+    }
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+    console.log(error);
+  }
+};
+module.exports = { getAllUsers, deleteUsers, getOneUsers,deleteAppointmentByAdmin,deletePostByAdmin};

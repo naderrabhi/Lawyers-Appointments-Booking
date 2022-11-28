@@ -47,6 +47,9 @@ const ProfileLawyer = ({ profile }) => {
             <h6>
               <span>Bio : </span> {profile && profile.bio}
             </h6>
+            <h6>
+              <span>Téléphone : </span> {profile && profile.phone}
+            </h6>
           </div>
           <LawyerDates />
         </div>

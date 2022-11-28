@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, getAllUser, getUser } from "../../JS/actions/admin";
+import { deleteAppointmentByAdmin,deletePostByAdmin, deleteUser, getAllUser, getUser } from "../../JS/actions/admin";
+import { FaBookOpen, FaCalendarTimes } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
 import ModalDetails from "../Modal/ModalDetails";
 import { deleteProfile } from "../../JS/actions/profile";
@@ -43,7 +44,7 @@ const AdminDashbord = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text"
-            placeholder="Search..."
+            placeholder="Recherche.."
             className="form-control"
           />
         </form>
@@ -66,16 +67,16 @@ const AdminDashbord = () => {
                 {user.firstName} {user.LastName}
               </td>
               <td>{user.role}</td>
-              <td>{user.specialty}</td>
+              <td>{user.specialty && user.specialty.slice(9)}</td>
               <td className="dashboard--action">
                 <button
                   onClick={() => {
                     dispatch(getUser(user._id));
                     handleShow();
                   }}
-                  className="btn mb-1 btn-warning btn-sm"
+                  
                 >
-                  détail
+                  <FaBookOpen />
                 </button>
                 <Modal show={show} onHide={handleClose}>
                   <ModalDetails User={User} handleClose={handleClose} />
@@ -84,11 +85,13 @@ const AdminDashbord = () => {
                   onClick={() => {
                     dispatch(deleteUser(user._id, role, name));
                     dispatch(deleteProfile(user._id));
+                    dispatch(deleteAppointmentByAdmin(user.role === 'lawyer' && user._id))
+                    dispatch(deletePostByAdmin(user.role === 'lawyer' && user._id))
                     dispatch(getAllUser(role, name));
                   }}
-                  className="btn mb-1 btn-danger btn-sm"
+                  
                 >
-                  effacer
+                  <FaCalendarTimes />
                 </button>
               </td>
             </tr>

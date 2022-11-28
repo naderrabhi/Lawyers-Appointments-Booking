@@ -59,6 +59,8 @@
     font-family: var(--font-base);
     font-weight: bold;
     font-size: 1.5rem;
+    padding: 0.3rem;
+    border-radius: 10px;
 }
 
 .booking--btn:hover {

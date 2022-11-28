@@ -5,7 +5,7 @@ import {
   getAllAppointment,
 } from "../../../JS/actions/appointment";
 import Table from "react-bootstrap/Table";
-import { FaBookOpen, FaCalendarCheck, FaCalendarTimes } from "react-icons/fa";
+import { FaBookOpen, FaCalendarTimes } from "react-icons/fa";
 import Modal from "react-bootstrap/Modal";
 import ClientDetails from "../ClientDetails/ClientDetails";
 
@@ -53,9 +53,6 @@ const LawyerDates = () => {
                     <Modal show={show} onHide={handleClose}>
                       <ClientDetails client={app} handleClose={handleClose} />
                     </Modal>
-                    <button>
-                      <FaCalendarCheck />
-                    </button>
                     <button
                       onClick={() => dispatch(deleteAppointment(app._id))}
                     >

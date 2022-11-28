@@ -53,7 +53,7 @@ const LawyersList = () => {
           <input
           style={{borderTopRightRadius: 0,borderBottomRightRadius: 0,border : 'white'}}
               value={inputAd}
-              placeholder="par adresse..."
+              placeholder="Recherche par adresse.."
               onChange={(e) => {
                 setInputAd(e.target.value);
               }}
@@ -63,7 +63,7 @@ const LawyersList = () => {
             <input
             style={{borderRadius: 0,borderTopLeftRadius: 0,border : 'white'}}
               value={input}
-              placeholder="par nom..."
+              placeholder="Recherche par nom.."
               onChange={(e) => {
                 setInput(e.target.value);
               }}

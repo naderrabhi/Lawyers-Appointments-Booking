@@ -20,6 +20,7 @@ const LawyerEdit = ({ profile, handleClose }) => {
     data.append("bio", bio);
     data.append("phone", phone);
     dispatch(postProfile(data));
+    handleClose()
   };
   return (
     <>

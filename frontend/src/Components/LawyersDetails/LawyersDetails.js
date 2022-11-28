@@ -28,6 +28,7 @@ const LawyersDetails = () => {
   const [show, setShow] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false)
   const [comment, setComment] = useState("");
+  const [commentEdit, setCommentEdit] = useState("");
   const [value, onChange] = useState(new Date());
   const [day, setDay] = useState("");
   const [hour, setHour] = useState("");
@@ -88,7 +89,7 @@ const LawyersDetails = () => {
   const handleEdit = (id) => {
     setPostID(id)
     setToggleEdit(!toggleEdit)
-    if (toggleEdit) {dispatch(editPost(id,comment,profile.lawyerID._id))}
+    if (toggleEdit) {dispatch(editPost(id,commentEdit,profile.lawyerID._id))}
     setComment("")
   }
 
@@ -170,6 +171,7 @@ const LawyersDetails = () => {
             <div className="lawyer--details_comment">
               <img src={(user && user.image) || "/defaultSrc.png"} alt="" />
               <input
+              className="form-control form-control-sm"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 type="text"
@@ -201,10 +203,11 @@ const LawyersDetails = () => {
                     {post.date.slice(0, 10) + " à " + post.date.slice(11, 16)}
                   </h6>
                   {toggleEdit && postID === post._id ? <input
-                  onChange={(e) => setComment(e.target.value)}
+                  onChange={(e) => setCommentEdit(e.target.value)}
                   Value={post.comment}
                 type="text"
                 placeholder="Laisser un commentaire"
+                className="form-control form-control-sm mb-3"
               /> : <p>{post.comment}</p>}
                   <div className="commentget--info_btn">
                     {user && user._id === post.userID ? (

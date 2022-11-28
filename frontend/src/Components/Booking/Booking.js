@@ -47,7 +47,7 @@ const Booking = ({ id, handleClose, day, hour }) => {
                   rows="5"
                   className="form-control mb-3"
                 />
-                <button className="btn booking--btn">Réservez</button>
+                <button className="booking--btn">Réservez</button>
               </form>
             </div>
           </div>
