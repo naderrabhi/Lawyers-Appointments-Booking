@@ -53,7 +53,6 @@ export const getMyProfile = () => async (dispatch) => {
         },
       }
     );
-    console.log(response.data);
     dispatch({type : GET_My_PROFILE_SUCCESS, payload: response.data})
   } catch (error) {
     dispatch({ type: GET_My_PROFILE_FAIL, payload: error });
@@ -92,10 +91,8 @@ export const deleteProfile = (id) => async (dispatch) => {
       }
     );
     dispatch({ type: DEL_PROFILE_SUCCESS, payload: response.data });
-    // dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
   } catch (error) {
     dispatch({ type: DEL_PROFILE_FAIL, payload: error });
-    // dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };

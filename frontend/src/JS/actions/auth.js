@@ -20,12 +20,19 @@ export const registerLawyer = (newLawyer, navigate) => async (dispatch) => {
       newLawyer
     );
     dispatch({ type: REGISTER_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg,"success"));
     navigate("/login");
   } catch (error) {
-    dispatch({ type: REGISTER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: REGISTER_FAIL, payload: error });
   }
 };
 
@@ -37,12 +44,19 @@ export const registerClient = (newClient, navigate) => async (dispatch) => {
       newClient
     );
     dispatch({ type: REGISTER_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg,"success"));
     navigate("/login");
   } catch (error) {
-    dispatch({ type: REGISTER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: REGISTER_FAIL, payload: error });
   }
 };
 
@@ -55,21 +69,28 @@ export const loginUser = (user, navigate) => async (dispatch) => {
     );
     if (response.data.user.role === "admin") {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-      dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+      dispatch(setAlert(response.data.msg,"success"));
       navigate("/dashboard");
     }
     if (response.data.user.role === "lawyer") {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-      dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+      dispatch(setAlert(response.data.msg,"success"));
       navigate("/profile");
     }
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg,"success"));
     navigate("/profile");
   } catch (error) {
-    dispatch({ type: LOGIN_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: LOGIN_FAIL, payload: error });
   }
 };
 
@@ -84,11 +105,10 @@ export const getCurrentUser = () => async (dispatch) => {
         },
       }
     );
-    
+
     dispatch({ type: GET_CURRENT_USER_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: GET_CURRENT_USER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
     console.log(error);
   }
 };

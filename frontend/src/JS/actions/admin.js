@@ -14,9 +14,16 @@ export const getAllUser = (role,name) => async (dispatch) => {
     });
     dispatch({ type: GET_ALL_USER_SUCCESS, payload: response.data });
   } catch (error) {
-    dispatch({ type: GET_ALL_USER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: GET_ALL_USER_FAIL, payload: error });
   }
 };
 
@@ -32,12 +39,19 @@ export const deleteUser = (id,role,name) => async (dispatch) => {
       }
     );
     dispatch({ type: DELETE_USER_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg, "success"));
     dispatch(getAllUser(role,name));
   } catch (error) {
-    dispatch({ type: DELETE_USER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: DELETE_USER_FAIL, payload: error });
   }
 };
 export const deleteAppointmentByAdmin = (id) => async (dispatch) => {
@@ -89,8 +103,15 @@ export const getUser = (id) => async (dispatch) => {
     );
     dispatch({ type: GET_USER_SUCCESS, payload: response.data });
   } catch (error) {
-    dispatch({ type: GET_USER_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: GET_USER_FAIL, payload: error });
   }
 };

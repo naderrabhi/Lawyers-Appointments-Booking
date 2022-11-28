@@ -30,11 +30,18 @@ export const createAppointment = (id, newAppointment) => async (dispatch) => {
       }
     );
     dispatch({ type: POST_APPOINTMENT_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg, "success"));
   } catch (error) {
-    dispatch({ type: POST_APPOINTMENT_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: POST_APPOINTMENT_FAIL, payload: error });
   }
 };
 
@@ -85,7 +92,6 @@ export const getOneAppointmentOfLawyer = (id,day) => async (dispatch) => {
         },
       }
     );
-    console.log(response.data);
     dispatch({ type: GET_LAWYER_APPOINTMENT_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: GET_LAWYER_APPOINTMENT_FAIL, payload: error });
@@ -106,11 +112,18 @@ export const deleteAppointment = (id) => async (dispatch) => {
       }
     );
     dispatch({ type: DEL_APPOINTMENT_SUCCESS, payload: response.data });
-    dispatch(setAlert({msg : response.data.msg, variant : 'success'}));
+    dispatch(setAlert(response.data.msg, "success"));
     dispatch(getAllAppointment());
   } catch (error) {
-    dispatch({ type: DEL_APPOINTMENT_FAIL, payload: error });
-    dispatch(setAlert({msg : error.response.data.msg, variant : 'danger'}));
+    const { errors, msg } = error.response.data;
+    console.log(errors);
     console.log(error);
+    if (Array.isArray(errors)) {
+      errors.map((err) => dispatch(setAlert(err.msg, "danger")));
+    }
+    if (msg) {
+      dispatch(setAlert(msg, "danger"));
+    }
+    dispatch({ type: DEL_APPOINTMENT_FAIL, payload: error });
   }
 };

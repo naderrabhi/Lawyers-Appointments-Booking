@@ -11,7 +11,7 @@ const Alerts = () => {
     alerts &&
     alerts.map((alert) => (
       <Alert style={{position : "absolute",marginTop : "14vh",textAlign:'center'}} key={alert.id} variant={alert.msg.variant}>
-        {alert.msg.msg}
+        {alert.msg}
       </Alert>
     ))
   );
